@@ -4,12 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import { Send, Mail, MapPin, CheckCircle } from 'lucide-react'
 
 const services = [
-  'Lead-Gen Website (Starter – ₹8,999)',
-  'Lead-Gen Website (Growth – ₹14,999)',
-  'Lead-Gen Website (Premium – ₹24,999)',
-  'Monthly Marketing (Ignite – ₹15K/mo)',
-  'Monthly Marketing (Accelerate – ₹30K/mo)',
-  'Not sure yet – need advice',
+  'Professional Website (from ₹15,000)',
+  'Monthly Marketing (from ₹15,000/mo)',
+  'Both — Website + Marketing',
+  'Not sure yet — need advice',
 ]
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
@@ -68,12 +66,11 @@ export default function Contact() {
         <div className="text-center mb-16 reveal">
           <div className="section-badge mb-5">Contact</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
-            Let's Build Something
-            <span className="gradient-text"> That Gets You Leads.</span>
+            Tell Us About
+            <span className="gradient-text"> Your Business.</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            Fill the form or call directly. We'll respond within 24 hours with a clear plan and
-            honest assessment — no sales pressure.
+            Fill the form and we'll get back within 24 hours with a clear plan tailored to your business — no obligation, no sales pressure.
           </p>
         </div>
 
@@ -198,7 +195,7 @@ export default function Contact() {
                       name="business"
                       value={form.business}
                       onChange={handleChange}
-                      placeholder="Your Cafe / Clinic / Store"
+                      placeholder="Your Firm / Clinic / Association"
                       className="form-input"
                     />
                   </div>
@@ -232,7 +229,7 @@ export default function Contact() {
                     value={form.message}
                     onChange={handleChange}
                     rows={4}
-                    placeholder="What does your business do? What's your biggest marketing challenge right now?"
+                    placeholder="What does your business do? What problem are you trying to solve?"
                     className="form-input resize-none"
                   />
                 </div>
