@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#FF5C38',
-        'primary-dark': '#E04A28',
-        secondary: '#00C4FF',
-        accent: '#7B2FFF',
+        primary: '#FFD600',
+        'primary-dark': '#E6C000',
+        secondary: '#0AEFFF',
+        accent: '#FFB300',
         dark: '#05091A',
         'dark-mid': '#0D1526',
         'dark-light': '#14213D',
@@ -35,8 +35,8 @@ const config: Config = {
           '50%': { transform: 'translateY(-18px)' },
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(255,92,56,0.25)' },
-          '50%': { boxShadow: '0 0 45px rgba(255,92,56,0.55)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(255,214,0,0.25)' },
+          '50%': { boxShadow: '0 0 45px rgba(255,214,0,0.55)' },
         },
         'slide-up': {
           from: { opacity: '0', transform: 'translateY(28px)' },
