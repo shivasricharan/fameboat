@@ -37,14 +37,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo — PNG in both modes; dark mode uses invert+hue-rotate so white bg → dark, yellow stays yellow */}
+        {/* Logo */}
         <a href="#" className="flex items-center">
-          <img
-            src="/fameboat.png"
-            alt="Fameboat"
-            className="fb-logo"
-            style={{ height: '56px', width: 'auto' }}
-          />
+          <div className={theme === 'dark' ? 'bg-white rounded-xl px-3 py-1.5' : ''}>
+            <img
+              src="/fameboat.png"
+              alt="Fameboat"
+              style={{ height: '44px', width: 'auto' }}
+            />
+          </div>
         </a>
 
         {/* Desktop nav */}

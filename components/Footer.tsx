@@ -10,12 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="#" className="flex items-center mb-4">
-              <img
-                src="/fameboat.png"
-                alt="Fameboat"
-                className="fb-logo"
-                style={{ height: '52px', width: 'auto' }}
-              />
+              <div className="fb-logo-wrap">
+                <img
+                  src="/fameboat.png"
+                  alt="Fameboat"
+                  style={{ height: '44px', width: 'auto' }}
+                />
+              </div>
             </a>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
               AI-powered marketing and lead-gen websites for businesses ready to grow online.

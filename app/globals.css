@@ -302,13 +302,16 @@ html.light .form-input:focus {
   background: rgba(255,214,0,0.04);
 }
 
-/* Logo — dark mode: invert(white→black) + hue-rotate(keeps yellow as yellow) */
-.fb-logo {
-  filter: invert(1) hue-rotate(180deg);
-  transition: filter 0.3s ease;
+/* Footer logo — white pill in dark mode, plain in light mode */
+.fb-logo-wrap {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 6px 12px;
+  display: inline-flex;
 }
-html.light .fb-logo {
-  filter: none;
+html.light .fb-logo-wrap {
+  background: transparent;
+  padding: 0;
 }
 
 /* Gradient text stays readable */
