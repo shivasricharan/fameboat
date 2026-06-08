@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Instagram, Linkedin, Facebook } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -35,13 +35,15 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: <Instagram size={18} />, href: '#', label: 'Instagram' },
-                { icon: <Linkedin size={18} />, href: '#', label: 'LinkedIn' },
-                { icon: <Twitter size={18} />, href: '#', label: 'Twitter' },
+                { icon: <Instagram size={18} />, href: 'https://www.instagram.com/fameboatmedia/', label: 'Instagram' },
+                { icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/company/fameboatmedia/', label: 'LinkedIn' },
+                { icon: <Facebook size={18} />, href: 'https://www.facebook.com/fameboatmedia/', label: 'Facebook' },
               ].map(({ icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted hover:text-white hover:border-primary/30 transition-colors"
                 >
