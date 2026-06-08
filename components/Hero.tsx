@@ -43,7 +43,7 @@ export default function Hero() {
           {/* Stats pills */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {[
-              { icon: <TrendingUp size={16} />, stat: '3x More Leads', sub: 'vs Instagram only' },
+              { icon: <TrendingUp size={16} />, stat: '3x More Leads', sub: 'vs social media only' },
               { icon: <Zap size={16} />, stat: 'Live in 5–7 Days', sub: 'quick turnaround' },
               { icon: <IndianRupee size={16} />, stat: 'From ₹8,999', sub: 'transparent pricing' },
             ].map(({ icon, stat, sub }) => (
