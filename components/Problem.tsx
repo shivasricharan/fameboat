@@ -5,24 +5,24 @@ import { Instagram, AlertTriangle, TrendingDown, IndianRupee, X, Check } from 'l
 
 const problems = [
   {
-    icon: <Instagram size={22} />,
-    title: 'Algorithm Dependency',
-    desc: 'Instagram can shadowban you overnight. One algorithm update and your reach drops 70%. You have zero control.',
-  },
-  {
     icon: <TrendingDown size={22} />,
-    title: 'No Lead Capture',
-    desc: "Followers see your post, but where do they go? There's no form, no CTA, no way to capture serious buyers.",
+    title: 'Outdated Online Presence',
+    desc: 'Clients check your website before calling. If it looks old or unprofessional, they move on — silently. First impressions online are final.',
   },
   {
     icon: <AlertTriangle size={22} />,
-    title: 'You Don\'t Own Anything',
-    desc: 'Your Instagram account isn\'t yours. The platform owns it. A website is your digital real estate — forever.',
+    title: 'Stuck Waiting for Developers',
+    desc: 'Every small change — a new service, updated fee, event info — means calling a developer and waiting days. You should not need tech support to run your own business.',
+  },
+  {
+    icon: <Instagram size={22} />,
+    title: 'Manual, Messy Operations',
+    desc: 'Registrations on WhatsApp. Follow-ups in Excel. Payments tracked in a notebook. Everything is manual, error-prone, and exhausting at scale.',
   },
   {
     icon: <IndianRupee size={22} />,
     title: 'Agencies Are Expensive',
-    desc: 'Agencies charge ₹50K–2L/month. Freelancers disappear. DIY tools overwhelm. There\'s no middle ground.',
+    desc: 'Full-service agencies charge ₹50K–2L/month. Freelancers disappear after delivery. There is no right-sized partner for serious professionals.',
   },
 ]
 
@@ -44,13 +44,13 @@ export default function Problem() {
         <div className="text-center mb-16 reveal">
           <div className="section-badge mb-5">The Problem</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
-            Running a Business on Instagram Alone
+            Your Practice Is Professional.
             <br />
-            <span className="gradient-text">is a Ticking Time Bomb.</span>
+            <span className="gradient-text">Your Website Should Be Too.</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            Most businesses have a website — but it just sits there. No leads, no strategy, no
-            growth. Being online isn't the same as growing online.
+            Most professionals and service businesses have an outdated website — or none at all.
+            The ones who fix it first win the clients.
           </p>
         </div>
 
@@ -83,11 +83,11 @@ export default function Problem() {
             </div>
             <ul className="space-y-3">
               {[
-                'Website exists but generates zero leads',
-                'Visitors come and go, nothing captured',
-                'Paying for posts with no measurable ROI',
-                'Competing on price because brand is weak',
-                'Spending hours creating content with no strategy',
+                'Outdated or nonexistent online presence',
+                'Every website change needs a developer',
+                'Registrations and follow-ups done manually',
+                'Paying agencies who don\'t understand your business',
+                'Losing clients to competitors who look better online',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-muted">
                   <X size={14} className="text-red-400 mt-0.5 flex-shrink-0" />
@@ -108,11 +108,11 @@ export default function Problem() {
             </div>
             <ul className="space-y-3">
               {[
-                'Professional website you own, forever',
-                'Every visitor can become a captured lead',
-                'Leads auto-saved to your Google Sheet daily',
-                'Clear brand that commands trust and premium price',
-                'AI-powered content & strategy without the agency price',
+                'Professional website that reflects your expertise',
+                'Your team updates everything via Google Sheets',
+                'Registrations, payments, emails — fully automated',
+                'A long-term partner who knows your business',
+                'Clients find you, trust you, and choose you',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-white">
                   <Check size={14} className="text-green-400 mt-0.5 flex-shrink-0" />

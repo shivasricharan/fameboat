@@ -1,15 +1,27 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { ArrowRight, Database, Smartphone, Zap, Shield, BarChart2, Globe } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
-const features = [
-  { icon: <Globe size={18} />, label: 'Custom domain + hosting' },
-  { icon: <Database size={18} />, label: 'Leads → Google Sheets auto-sync' },
-  { icon: <Smartphone size={18} />, label: 'Mobile-first, SEO-ready' },
-  { icon: <Zap size={18} />, label: 'Fast load — under 2 seconds' },
-  { icon: <BarChart2 size={18} />, label: 'Analytics + Google My Business' },
-  { icon: <Shield size={18} />, label: 'SSL, security, monthly maintenance' },
+const useCases = [
+  {
+    emoji: '📥',
+    title: 'Enquiries & Lead Capture',
+    desc: 'Visitor fills your contact form → saved instantly to your Google Sheet → you get notified. No CRM. No missed leads.',
+    color: 'border-primary/25 bg-primary/8',
+  },
+  {
+    emoji: '🎫',
+    title: 'Event Registration & Payments',
+    desc: 'Registrant submits form + payment screenshot → your team marks as Verified in Sheet → automated confirmation email fires instantly.',
+    color: 'border-secondary/25 bg-secondary/8',
+  },
+  {
+    emoji: '📺',
+    title: 'Content & CMS Updates',
+    desc: 'Add a video URL, new listing, or blog post to your Google Sheet → website refreshes automatically. Your team is the CMS.',
+    color: 'border-accent/25 bg-accent/8',
+  },
 ]
 
 export default function WebsiteService() {
@@ -28,152 +40,68 @@ export default function WebsiteService() {
     <section ref={ref} id="services" className="py-24 mesh-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 reveal">
-          <div className="section-badge mb-5">Core Service</div>
+          <div className="section-badge mb-5">How It Works</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
-            A Lead Machine.
-            <span className="gradient-text"> Not Just a Website.</span>
+            Your Website in Front.
+            <span className="gradient-text"> Google Sheets Behind.</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            We design, build, and launch your website in 5–7 days. Every enquiry goes
-            straight into your Google Sheet — no CRM subscriptions, no technical hassle.
+            We design and build the website. Google Sheets becomes the operating system behind it.
+            Your team manages everything — updates, registrations, automations — without touching a single line of code.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Left: How it works visually */}
-          <div className="reveal">
-            <div className="glass rounded-2xl p-6 border border-white/10">
-              {/* Flow diagram */}
-              <div className="text-center mb-6 text-xs font-bold text-muted uppercase tracking-wider">
-                How Your Leads Flow
-              </div>
-              <div className="space-y-3">
-                {[
-                  {
-                    step: '1',
-                    label: 'Visitor lands on your website',
-                    color: 'bg-secondary/15 border-secondary/25 text-secondary',
-                    icon: '🌐',
-                  },
-                  {
-                    step: '2',
-                    label: 'They fill a simple contact/booking form',
-                    color: 'bg-accent/15 border-accent/25 text-accent',
-                    icon: '📝',
-                  },
-                  {
-                    step: '3',
-                    label: 'Lead instantly saved to Google Sheets',
-                    color: 'bg-green-500/15 border-green-500/25 text-green-400',
-                    icon: '📊',
-                  },
-                  {
-                    step: '4',
-                    label: 'You get notified — call them, close the deal',
-                    color: 'bg-primary/15 border-primary/25 text-primary',
-                    icon: '📞',
-                  },
-                ].map(({ step, label, color, icon }, i) => (
-                  <div key={step}>
-                    <div className={`glass px-4 py-3 rounded-xl border flex items-center gap-3 ${color}`}>
-                      <span className="text-lg">{icon}</span>
-                      <div>
-                        <div className="text-xs text-muted">Step {step}</div>
-                        <div className="text-sm font-semibold text-white">{label}</div>
-                      </div>
-                    </div>
-                    {i < 3 && (
-                      <div className="flex justify-center my-1">
-                        <ArrowRight size={14} className="text-muted rotate-90" />
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Sample sheet preview */}
-              <div className="mt-6 rounded-xl overflow-hidden border border-white/8">
-                <div className="bg-green-900/20 border-b border-white/8 px-4 py-2 flex items-center gap-2">
-                  <span className="text-green-400 text-sm">📋</span>
-                  <span className="text-xs font-bold text-green-400">Your Google Sheet — Live Leads</span>
-                </div>
-                <table className="w-full text-xs">
-                  <thead>
-                    <tr className="border-b border-white/5">
-                      {['Date', 'Name', 'Phone', 'Service', 'Message'].map((h) => (
-                        <th key={h} className="px-3 py-2 text-left text-muted font-medium">
-                          {h}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ['Today', 'Raj S.', '98xxxxxxxx', 'Website', 'Need urgent...'],
-                      ['Today', 'Priya R.', '87xxxxxxxx', 'Marketing', 'Want to grow...'],
-                      ['Yest.', 'Ahmed K.', '97xxxxxxxx', 'Branding', 'Starting new...'],
-                    ].map((row, i) => (
-                      <tr key={i} className="border-b border-white/4 hover:bg-white/2">
-                        {row.map((cell, j) => (
-                          <td key={j} className="px-3 py-2 text-muted">
-                            {cell}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+        {/* Use case cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16 reveal">
+          {useCases.map(({ emoji, title, desc, color }) => (
+            <div key={title} className={`glass rounded-2xl p-7 border card-hover ${color}`}>
+              <div className="text-4xl mb-4">{emoji}</div>
+              <h3 className="font-display text-lg font-bold text-white mb-3">{title}</h3>
+              <p className="text-muted text-sm leading-relaxed">{desc}</p>
             </div>
+          ))}
+        </div>
+
+        {/* Visual flow */}
+        <div className="glass rounded-2xl border border-white/10 overflow-hidden reveal">
+          <div className="px-6 py-4 border-b border-white/8 flex items-center gap-3">
+            <span className="text-green-400 text-sm font-bold">📋 Google Sheet — Live Backend</span>
+            <span className="text-xs text-muted ml-auto">Auto-updates in real time</span>
           </div>
-
-          {/* Right: Feature list */}
-          <div className="space-y-5 reveal">
-            <h3 className="font-display text-2xl font-bold text-white mb-6">
-              Everything included. Zero surprises.
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {features.map(({ icon, label }) => (
-                <div
-                  key={label}
-                  className="glass rounded-xl px-4 py-3.5 border border-white/8 flex items-center gap-3 card-hover"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                    {icon}
-                  </div>
-                  <span className="text-sm text-white font-medium">{label}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="glass rounded-2xl p-6 border border-primary/20 mt-6">
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-bold text-white text-lg">Starter Website</span>
-                <span className="text-2xl font-bold text-primary">₹8,999</span>
-              </div>
-              <p className="text-muted text-sm mb-4">
-                Professional 5-page website · Google Sheets lead capture · Mobile-first · Live in 5–7 days
-              </p>
-              <a href="#contact" className="btn-primary w-full justify-center">
-                Start Your Website <ArrowRight size={16} />
-              </a>
-            </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-white/5">
+                  {['Timestamp', 'Name', 'Type', 'Status', 'Action Taken'].map((h) => (
+                    <th key={h} className="px-5 py-3 text-left text-muted font-semibold">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Today 9:12am', 'Swetha R.', 'Enquiry', '🟡 New', 'Notified via email'],
+                  ['Today 8:45am', 'Arun M.', 'Event Registration', '✅ Verified', 'Confirmation email sent'],
+                  ['Yest. 6:30pm', 'Priya K.', 'Content Update', '✅ Live', 'Website refreshed'],
+                  ['Yest. 3:00pm', 'Rahul S.', 'Event Registration', '❌ Rejected', 'Rejection email sent'],
+                ].map((row, i) => (
+                  <tr key={i} className="border-b border-white/4">
+                    {row.map((cell, j) => (
+                      <td key={j} className="px-5 py-3 text-muted">{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
-        {/* Social proof strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
-          {[
-            { stat: '5–7 Days', label: 'Avg delivery time' },
-            { stat: '₹0', label: 'Monthly CRM cost' },
-            { stat: '100%', label: 'Mobile optimised' },
-            { stat: '24/7', label: 'Leads captured auto' },
-          ].map(({ stat, label }) => (
-            <div key={label} className="glass rounded-2xl p-5 border border-white/8 text-center">
-              <div className="text-2xl font-bold gradient-text mb-1">{stat}</div>
-              <div className="text-muted text-xs">{label}</div>
-            </div>
-          ))}
+        <div className="text-center mt-10 reveal">
+          <p className="text-muted text-sm mb-5">
+            No CRM subscriptions. No developer calls. No technical training. Just a Google Sheet your team already knows.
+          </p>
+          <a href="#contact" className="btn-primary text-base animate-pulse-glow">
+            See How This Works for Your Business <ArrowRight size={16} />
+          </a>
         </div>
       </div>
     </section>

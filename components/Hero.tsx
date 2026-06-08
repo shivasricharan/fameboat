@@ -30,14 +30,14 @@ export default function Hero() {
           {/* Sub-headline */}
           <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto mb-4 leading-relaxed">
             Fameboat builds{' '}
-            <span className="text-white font-semibold">lead-capturing websites</span> for any
-            business ready to grow online — leads flow straight into{' '}
-            <span className="text-white font-semibold">your Google Sheet</span>, no tech skills
-            needed. Powered by 20 years of marketing + AI.
+            <span className="text-white font-semibold">professional websites</span> for architects,
+            designers, consultants, clinics, and associations — powered by{' '}
+            <span className="text-white font-semibold">Google Sheets</span> so your team manages
+            everything without developers or CMS training.
           </p>
 
           <p className="text-sm text-muted mb-10">
-            Cafes · Clinics · Retail · Real Estate · Salons · Coaching Centres
+            Architects · Interior Designers · Real Estate · Clinics · Financial Advisors · Associations
           </p>
 
           {/* Stats pills */}
