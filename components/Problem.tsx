@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Instagram, AlertTriangle, TrendingDown, DollarSign, X, Check } from 'lucide-react'
+import { Instagram, AlertTriangle, TrendingDown, IndianRupee, X, Check } from 'lucide-react'
 
 const problems = [
   {
@@ -20,7 +20,7 @@ const problems = [
     desc: 'Your Instagram account isn\'t yours. The platform owns it. A website is your digital real estate — forever.',
   },
   {
-    icon: <DollarSign size={22} />,
+    icon: <IndianRupee size={22} />,
     title: 'Agencies Are Expensive',
     desc: 'Agencies charge ₹50K–2L/month. Freelancers disappear. DIY tools overwhelm. There\'s no middle ground.',
   },
