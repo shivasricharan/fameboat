@@ -50,8 +50,8 @@ export default function Navbar() {
     <img
       src="/fameboat.png"
       alt="Fameboat"
-      className="logo-light h-10 w-auto object-contain"
-      style={{ mixBlendMode: 'multiply' }}
+      className="logo-light"
+      style={{ height: '56px', width: 'auto', marginLeft: '-8px' }}
     />
   )
 

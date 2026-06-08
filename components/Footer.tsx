@@ -25,8 +25,8 @@ export default function Footer() {
               <img
                 src="/fameboat.png"
                 alt="Fameboat"
-                className="logo-light h-10 w-auto object-contain"
-                style={{ mixBlendMode: 'multiply' }}
+                className="logo-light"
+                style={{ height: '60px', width: 'auto', marginLeft: '-8px' }}
               />
             </a>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
