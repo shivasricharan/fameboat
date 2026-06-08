@@ -45,7 +45,7 @@ export default function Hero() {
             {[
               { icon: <TrendingUp size={16} />, stat: '3x More Leads', sub: 'vs social media only' },
               { icon: <Zap size={16} />, stat: 'Live in 5–7 Days', sub: 'quick turnaround' },
-              { icon: <IndianRupee size={16} />, stat: 'From ₹8,999', sub: 'transparent pricing' },
+              { icon: <IndianRupee size={16} />, stat: 'From ₹15,000', sub: 'transparent pricing' },
             ].map(({ icon, stat, sub }) => (
               <div
                 key={stat}
@@ -73,87 +73,6 @@ export default function Hero() {
           <p className="text-muted text-xs mt-5">
             No commitment · 30-minute call · We handle everything
           </p>
-        </div>
-
-        {/* Mock website + leads dashboard */}
-        <div className="mt-20 max-w-4xl mx-auto relative animate-fade-in">
-          <div className="glass rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            {/* Browser chrome */}
-            <div className="flex items-center gap-2 px-5 py-4 border-b border-white/8">
-              <div className="w-3 h-3 rounded-full bg-red-500/70" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-              <div className="w-3 h-3 rounded-full bg-green-500/70" />
-              <div className="flex-1 mx-4 bg-white/5 rounded-md px-4 py-1.5 text-xs text-muted flex items-center gap-2">
-                <span className="text-green-400">🔒</span>
-                yourbusiness.fameboat.com
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-6 grid md:grid-cols-3 gap-6">
-              {/* Mock website preview */}
-              <div className="md:col-span-2 space-y-3">
-                <div
-                  className="h-9 rounded-lg w-3/4"
-                  style={{ background: 'linear-gradient(135deg, rgba(255,214,0,0.35), rgba(255,179,0,0.2))' }}
-                />
-                <div className="h-3 bg-white/5 rounded w-full" />
-                <div className="h-3 bg-white/5 rounded w-5/6" />
-                <div className="h-3 bg-white/5 rounded w-4/6" />
-                <div className="mt-5 flex gap-3">
-                  <div className="h-10 w-32 rounded-lg bg-primary/25 border border-primary/40 flex items-center justify-center">
-                    <span className="text-primary text-xs font-bold">Book Now</span>
-                  </div>
-                  <div className="h-10 w-28 rounded-lg bg-white/5 border border-white/10" />
-                </div>
-                <div className="mt-4 grid grid-cols-3 gap-2">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="h-20 rounded-lg bg-white/4 border border-white/5" />
-                  ))}
-                </div>
-              </div>
-
-              {/* Live leads panel */}
-              <div className="space-y-3">
-                <div className="text-xs font-bold text-muted uppercase tracking-wider mb-3">
-                  Live Leads → Google Sheet
-                </div>
-                {[
-                  { name: 'Raj Sharma', time: '2 min ago', service: 'Website' },
-                  { name: 'Priya Reddy', time: '14 min ago', service: 'Marketing' },
-                  { name: 'Ahmed Khan', time: '1 hr ago', service: 'Branding' },
-                  { name: 'Kavitha S.', time: '3 hr ago', service: 'Website' },
-                ].map(({ name, time, service }, i) => (
-                  <div
-                    key={i}
-                    className="glass px-3 py-2.5 rounded-xl border border-green-500/15 flex items-start gap-2"
-                  >
-                    <span className="w-2 h-2 mt-1 rounded-full bg-green-400 flex-shrink-0" />
-                    <div>
-                      <div className="text-white text-xs font-semibold">{name}</div>
-                      <div className="text-muted text-[11px]">
-                        {service} · {time}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-                <div className="mt-2 flex items-center gap-1.5 text-[11px] text-muted border-t border-white/5 pt-3">
-                  <span className="text-green-400">↗</span> Auto-saved to Google Sheets
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating badges */}
-          <div className="absolute -top-4 -right-4 glass px-4 py-2 rounded-full text-sm font-bold text-green-400 border border-green-500/30 animate-float shadow-lg">
-            ✓ Your leads, your data
-          </div>
-          <div
-            className="absolute -bottom-4 -left-4 glass px-4 py-2 rounded-full text-sm font-bold text-primary border border-primary/30 animate-float shadow-lg"
-            style={{ animationDelay: '1.2s' }}
-          >
-            ₹8,999 onwards
-          </div>
         </div>
       </div>
     </section>
