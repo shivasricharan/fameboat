@@ -63,7 +63,11 @@ export default function Footer() {
           <div>
             <div className="text-white font-semibold mb-4 text-sm">Get in Touch</div>
             <ul className="space-y-2.5 text-sm text-muted">
-              <li>hello@fameboat.com</li>
+              <li>
+                <a href="mailto:shivacharan.s@gmail.com" className="hover:text-white transition-colors">
+                  shivacharan.s@gmail.com
+                </a>
+              </li>
               <li>Hyderabad, Telangana</li>
               <li className="text-white font-medium">
                 <a href="#contact" className="hover:text-primary transition-colors">

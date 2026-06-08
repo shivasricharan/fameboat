@@ -92,7 +92,7 @@ export default function Contact() {
               {
                 icon: <Mail size={20} />,
                 label: 'Email',
-                value: 'hello@fameboat.com',
+                value: 'shivacharan.s@gmail.com',
                 sub: 'Reply within 24 hours',
               },
               {
