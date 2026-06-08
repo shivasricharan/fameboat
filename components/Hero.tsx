@@ -17,21 +17,21 @@ export default function Hero() {
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8 text-sm font-medium text-gray-300">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Now serving local businesses in Hyderabad
+            Helping businesses go online in 5–7 days
           </div>
 
           {/* Headline */}
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
             Your Business Deserves
             <br />
-            <span className="gradient-text">More Than an Instagram Page.</span>
+            <span className="gradient-text">More Than a Social Media Profile.</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto mb-4 leading-relaxed">
             Fameboat builds{' '}
-            <span className="text-white font-semibold">lead-capturing websites</span> for local
-            businesses — leads flow straight into{' '}
+            <span className="text-white font-semibold">lead-capturing websites</span> for any
+            business ready to grow online — leads flow straight into{' '}
             <span className="text-white font-semibold">your Google Sheet</span>, no tech skills
             needed. Powered by 20 years of marketing + AI.
           </p>

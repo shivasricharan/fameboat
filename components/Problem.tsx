@@ -49,8 +49,8 @@ export default function Problem() {
             <span className="gradient-text">is a Ticking Time Bomb.</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            Most local businesses in Hyderabad have no website, no lead system, and zero marketing
-            strategy. They're one algorithm change away from invisibility.
+            Most businesses have no website, no lead system, and zero digital marketing strategy.
+            They're one algorithm change away from complete invisibility.
           </p>
         </div>
 

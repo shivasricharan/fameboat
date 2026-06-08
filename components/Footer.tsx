@@ -18,7 +18,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
-              AI-powered marketing and lead-gen websites for local businesses in Hyderabad.
+              AI-powered marketing and lead-gen websites for businesses ready to grow online.
               Built to help you own your growth.
             </p>
             <div className="flex gap-3">

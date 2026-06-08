@@ -31,12 +31,12 @@ export default function Industries() {
         <div className="text-center mb-16 reveal">
           <div className="section-badge mb-5">Industries</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
-            Built for Hyderabad's{' '}
-            <span className="gradient-text">Local Businesses</span>
+            Built for Every Business{' '}
+            <span className="gradient-text">Going Online</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            We understand the Hyderabad market — the customers, the competition, and what makes
-            local businesses win. No generic templates.
+            Clinic, salon, coach, consultant, interior designer, financial advisor — if your
+            business needs to be found and chosen online, Fameboat builds it right.
           </p>
         </div>
 

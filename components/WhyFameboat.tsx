@@ -13,8 +13,8 @@ const reasons = [
   },
   {
     icon: <MapPin size={22} />,
-    title: 'Hyderabad-Based, Hyderabad-Focused',
-    desc: 'We know Banjara Hills customers are different from Kukatpally customers. Local market knowledge is our unfair advantage.',
+    title: 'Founder-Led, Owner-First',
+    desc: 'You work directly with the founder — not a junior exec or an outsourced team. Every project gets real attention and a strategy built around your specific business.',
     color: 'text-secondary',
     bg: 'bg-secondary/10',
   },
