@@ -30,31 +30,6 @@ export default function Navbar() {
     document.documentElement.classList.toggle('light', next === 'light')
   }
 
-  const LogoDark = () => (
-    <div className="logo-dark items-center gap-2.5">
-      <svg width="36" height="32" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="1,33 11,5 21,33" fill="#FFD600"/>
-        <polygon points="8.5,13 21,33 15,33" fill="#000" fillOpacity="0.22"/>
-        <polygon points="19,33 29,5 39,33" fill="#FFD600"/>
-        <polygon points="26,13 19,33 25,33" fill="#000" fillOpacity="0.22"/>
-        <rect x="1" y="33.5" width="38" height="2.5" rx="1.25" fill="#FFD600"/>
-      </svg>
-      <span className="font-display font-bold text-xl text-white tracking-tight">
-        fame<span className="text-primary">boat</span>
-      </span>
-    </div>
-  )
-
-  const LogoLight = () => (
-    /* Once you upload public/logo.png this renders your actual logo */
-    <img
-      src="/fameboat.png"
-      alt="Fameboat"
-      className="logo-light"
-      style={{ height: '56px', width: 'auto', marginLeft: '-8px' }}
-    />
-  )
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -62,10 +37,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — PNG in both modes; dark mode uses invert+hue-rotate so white bg → dark, yellow stays yellow */}
         <a href="#" className="flex items-center">
-          <LogoDark />
-          <LogoLight />
+          <img
+            src="/fameboat.png"
+            alt="Fameboat"
+            className="fb-logo"
+            style={{ height: '56px', width: 'auto' }}
+          />
         </a>
 
         {/* Desktop nav */}

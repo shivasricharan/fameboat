@@ -302,11 +302,14 @@ html.light .form-input:focus {
   background: rgba(255,214,0,0.04);
 }
 
-/* Logo visibility */
-.logo-light { display: none; }
-.logo-dark  { display: flex; }
-html.light .logo-light { display: block; }
-html.light .logo-dark  { display: none; }
+/* Logo — dark mode: invert(white→black) + hue-rotate(keeps yellow as yellow) */
+.fb-logo {
+  filter: invert(1) hue-rotate(180deg);
+  transition: filter 0.3s ease;
+}
+html.light .fb-logo {
+  filter: none;
+}
 
 /* Gradient text stays readable */
 html.light .gradient-text-blue {

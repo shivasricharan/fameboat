@@ -9,24 +9,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-2.5 mb-4">
-              <span className="logo-dark items-center gap-2.5">
-                <svg width="34" height="30" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <polygon points="1,33 11,5 21,33" fill="#FFD600"/>
-                  <polygon points="8.5,13 21,33 15,33" fill="#000" fillOpacity="0.22"/>
-                  <polygon points="19,33 29,5 39,33" fill="#FFD600"/>
-                  <polygon points="26,13 19,33 25,33" fill="#000" fillOpacity="0.22"/>
-                  <rect x="1" y="33.5" width="38" height="2.5" rx="1.25" fill="#FFD600"/>
-                </svg>
-                <span className="font-display font-bold text-xl text-white tracking-tight">
-                  fame<span className="text-primary">boat</span>
-                </span>
-              </span>
+            <a href="#" className="flex items-center mb-4">
               <img
                 src="/fameboat.png"
                 alt="Fameboat"
-                className="logo-light"
-                style={{ height: '60px', width: 'auto', marginLeft: '-8px' }}
+                className="fb-logo"
+                style={{ height: '52px', width: 'auto' }}
               />
             </a>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
