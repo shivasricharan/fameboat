@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #FF5C38;
+  --secondary: #00C4FF;
+  --accent: #7B2FFF;
+  --dark: #05091A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #05091A;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #05091A; }
+::-webkit-scrollbar-thumb { background: #FF5C38; border-radius: 3px; }
+
+/* Mesh gradient background */
+.mesh-bg {
+  background-color: #05091A;
+  background-image:
+    radial-gradient(at 15% 85%, rgba(255,92,56,0.12) 0px, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(0,196,255,0.09) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(123,47,255,0.07) 0px, transparent 65%);
+}
+
+.section-bg {
+  background-color: #0D1526;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FF5C38 0%, #FF8C42 40%, #7B2FFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #00C4FF 0%, #7B2FFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #FF5C38, #FF8C42);
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255,92,56,0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  padding: 13px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+  border-color: rgba(255,92,56,0.35) !important;
+}
+
+/* Gradient border card */
+.gradient-border-card {
+  position: relative;
+  border-radius: 16px;
+  background: #0D1526;
+}
+.gradient-border-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,92,56,0.5), rgba(123,47,255,0.5));
+  z-index: -1;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section badge */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(255,92,56,0.1);
+  border: 1px solid rgba(255,92,56,0.25);
+  color: #FF5C38;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Pricing card popular */
+.popular-ring {
+  box-shadow: 0 0 0 2px #FF5C38, 0 20px 60px rgba(255,92,56,0.2);
+}
+
+/* Input styles */
+.form-input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: #fff;
+  font-size: 15px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  outline: none;
+}
+.form-input:focus {
+  border-color: rgba(255,92,56,0.5);
+  background: rgba(255,92,56,0.05);
+}
+.form-input::placeholder { color: #8892A4; }
+
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
