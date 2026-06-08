@@ -48,7 +48,7 @@ export default function Navbar() {
   const LogoLight = () => (
     /* Once you upload public/logo.png this renders your actual logo */
     <img
-      src="/logo.png"
+      src="/fameboat.png"
       alt="Fameboat"
       className="logo-light h-10 w-auto object-contain"
       style={{ mixBlendMode: 'multiply' }}
