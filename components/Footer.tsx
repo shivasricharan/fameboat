@@ -19,8 +19,7 @@ export default function Footer() {
               </div>
             </a>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
-              AI-powered marketing and lead-gen websites for businesses ready to grow online.
-              Built to help you own your growth.
+              Professional websites and digital marketing for architects, consultants, clinics, and associations — powered by Google Sheets so your team runs everything.
             </p>
             <div className="flex gap-3">
               {[
@@ -47,10 +46,10 @@ export default function Footer() {
             <div className="text-white font-semibold mb-4 text-sm">Services</div>
             <ul className="space-y-2.5">
               {[
-                ['Lead-Gen Websites', '#services'],
-                ['AI Marketing Retainer', '#services'],
+                ['Professional Website', '#services'],
+                ['Monthly Marketing', '#services'],
                 ['Pricing', '#pricing'],
-                ['Industries', '#industries'],
+                ['Case Studies', '#'],
               ].map(([label, href]) => (
                 <li key={label}>
                   <a href={href} className="text-muted hover:text-white text-sm transition-colors">
