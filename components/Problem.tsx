@@ -6,23 +6,23 @@ import { Instagram, AlertTriangle, TrendingDown, IndianRupee } from 'lucide-reac
 const problems = [
   {
     icon: <TrendingDown size={22} />,
-    title: 'Outdated Online Presence',
-    desc: 'Clients check your website before calling. If it looks old or unprofessional, they move on — silently. First impressions online are final.',
+    title: 'Outdated or No Website',
+    desc: 'Clients check you online before calling. An old or missing website loses you business silently.',
   },
   {
     icon: <AlertTriangle size={22} />,
-    title: 'Stuck Waiting for Developers',
-    desc: 'Every small change — a new service, updated fee, event info — means calling a developer and waiting days. You should not need tech support to run your own business.',
+    title: 'Dependent on Developers',
+    desc: 'Every small update — new service, changed fee, event info — needs a developer and days of waiting.',
   },
   {
     icon: <Instagram size={22} />,
-    title: 'Manual, Messy Operations',
-    desc: 'Registrations on WhatsApp. Follow-ups in Excel. Payments tracked in a notebook. Everything is manual, error-prone, and exhausting at scale.',
+    title: 'Everything Is Manual',
+    desc: 'Registrations on WhatsApp. Payments in notebooks. Follow-ups in Excel. It breaks at scale.',
   },
   {
     icon: <IndianRupee size={22} />,
-    title: 'Agencies Are Expensive',
-    desc: 'Full-service agencies charge ₹50K–2L/month. Freelancers disappear after delivery. There is no right-sized partner for serious professionals.',
+    title: 'No Right-Sized Partner',
+    desc: 'Agencies charge ₹50K–2L/month. Freelancers vanish after delivery. There\'s no partner built for serious professionals.',
   },
 ]
 
@@ -41,30 +41,29 @@ export default function Problem() {
   return (
     <section ref={ref} className="py-24 section-bg">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-12 reveal">
           <div className="section-badge mb-5">The Problem</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             Your Practice Is Professional.
             <br />
             <span className="gradient-text">Your Website Should Be Too.</span>
           </h2>
-          <p className="text-muted text-lg max-w-2xl mx-auto">
-            Most professionals and service businesses have an outdated website — or none at all.
-            The ones who fix it first win the clients.
+          <p className="text-muted text-lg max-w-xl mx-auto">
+            Most professionals and service businesses are stuck with the same four problems.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {problems.map(({ icon, title, desc }, i) => (
             <div
               key={title}
               className="glass rounded-2xl p-6 border border-white/8 card-hover reveal"
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className="w-11 h-11 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 mb-4">
                 {icon}
               </div>
-              <h3 className="font-semibold text-white mb-2">{title}</h3>
+              <h3 className="font-semibold text-white mb-2 text-sm">{title}</h3>
               <p className="text-muted text-sm leading-relaxed">{desc}</p>
             </div>
           ))}

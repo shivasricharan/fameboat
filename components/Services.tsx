@@ -6,22 +6,32 @@ import { Globe, Megaphone, ArrowRight } from 'lucide-react'
 const services = [
   {
     icon: <Globe size={26} />,
-    title: 'Lead-Gen Websites',
+    title: 'Professional Website',
     tag: 'Most Popular',
     tagColor: 'bg-primary/15 text-primary border-primary/25',
-    desc: 'Professional websites built in 5–7 days with Google Sheets lead capture. Own your digital presence forever.',
-    bullets: ['5-page custom website', 'Google Sheets integration', 'SEO + mobile optimised', 'From ₹8,999'],
+    desc: 'Custom-designed website with Google Sheets as your backend. Your team manages everything — content, enquiries, registrations, automated emails — without any developer.',
+    bullets: [
+      'Custom design — not a template',
+      'Google Sheets backend (your team runs it)',
+      'Mobile-first + SEO optimised',
+      'Live in 5–7 days · From ₹15,000',
+    ],
     cta: '#pricing',
-    ctaLabel: 'See Packages',
+    ctaLabel: 'See Pricing',
     border: 'border-primary/20',
   },
   {
     icon: <Megaphone size={26} />,
-    title: 'AI Marketing Retainer',
+    title: 'Monthly Marketing',
     tag: 'Best for Growth',
     tagColor: 'bg-accent/15 text-accent border-accent/25',
-    desc: 'Monthly marketing management using AI tools — social content, ads, SEO, WhatsApp campaigns, and strategy.',
-    bullets: ['Social media content + strategy', 'Google Ads / Meta Ads', 'Monthly performance report', 'From ₹15,000/month'],
+    desc: 'Full digital marketing handled for you. Social content, ads, SEO, and strategy — all powered by AI tools and two decades of marketing experience.',
+    bullets: [
+      'Social media content + strategy',
+      'Meta Ads + Google Ads management',
+      'SEO + WhatsApp campaigns',
+      'From ₹15,000/month · Cancel anytime',
+    ],
     cta: '#contact',
     ctaLabel: 'Get a Quote',
     border: 'border-accent/20',
@@ -41,18 +51,16 @@ export default function Services() {
   }, [])
 
   return (
-    <section ref={ref} className="py-24 mesh-bg">
+    <section ref={ref} id="services" className="py-24 mesh-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 reveal">
           <div className="section-badge mb-5">What We Do</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
-            Everything Your Business Needs
-            <br />
-            <span className="gradient-text">to Grow Digitally</span>
+            Two Services.
+            <span className="gradient-text"> One Partner.</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            From your first website to full marketing management — we have a solution for every stage
-            and every budget.
+            A professional website your team can run independently, and marketing that drives results — start with one or both.
           </p>
         </div>
 
