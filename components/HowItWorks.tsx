@@ -8,7 +8,7 @@ const steps = [
     icon: <Phone size={28} />,
     number: '01',
     title: '30-Min Strategy Call',
-    desc: "Tell us about your business, your customers, and your goals. We'll ask the right questions and define exactly what you need. No jargon, no sales pitch.",
+    desc: "Tell us about your business, your team, and your goals. We ask the right questions and scope exactly what you need — no jargon, no sales pitch.",
     color: 'from-primary/20 to-primary/5',
     border: 'border-primary/25',
     iconBg: 'bg-primary/15',
@@ -18,7 +18,7 @@ const steps = [
     icon: <Palette size={28} />,
     number: '02',
     title: 'We Design & Build',
-    desc: "Our team designs, writes content, and builds your website. You review and give feedback. We handle the Google Sheets integration, SEO, and mobile optimisation.",
+    desc: "We design, write, and build your website. You review and give feedback. We handle the Google Sheets integration, automations, SEO, and mobile optimisation.",
     color: 'from-accent/20 to-accent/5',
     border: 'border-accent/25',
     iconBg: 'bg-accent/15',
@@ -27,8 +27,8 @@ const steps = [
   {
     icon: <Rocket size={28} />,
     number: '03',
-    title: 'Launch & Start Getting Leads',
-    desc: "Your website goes live in 5–7 days. Every enquiry auto-populates your Google Sheet. You get notified instantly. Start calling leads and closing business.",
+    title: 'Launch & Hand Over',
+    desc: "Your website goes live in 5–7 days. Your team manages everything from Google Sheets — updates, registrations, enquiries, automations. No developer needed, ever.",
     color: 'from-secondary/20 to-secondary/5',
     border: 'border-secondary/25',
     iconBg: 'bg-secondary/15',
@@ -54,13 +54,11 @@ export default function HowItWorks() {
         <div className="text-center mb-16 reveal">
           <div className="section-badge mb-5">How It Works</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
-            From Zero to{' '}
-            <span className="gradient-text">Lead Machine</span>
-            {' '}in 3 Steps
+            Simple Process.
+            <span className="gradient-text"> Your Team Runs It After.</span>
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto">
-            Simple, fast, and stress-free. You focus on running your business — we handle
-            the digital side completely.
+            We handle the build. You get a website your team can operate independently — no developer calls, no technical knowledge required.
           </p>
         </div>
 
@@ -74,11 +72,8 @@ export default function HowItWorks() {
               className={`glass rounded-2xl p-8 border ${border} card-hover reveal bg-gradient-to-b ${color}`}
               style={{ transitionDelay: `${i * 0.15}s` }}
             >
-              {/* Step number */}
               <div className="flex items-center justify-between mb-6">
-                <div
-                  className={`w-14 h-14 rounded-2xl ${iconBg} flex items-center justify-center ${iconColor}`}
-                >
+                <div className={`w-14 h-14 rounded-2xl ${iconBg} flex items-center justify-center ${iconColor}`}>
                   {icon}
                 </div>
                 <span className="text-5xl font-bold text-white/5">{number}</span>
@@ -90,12 +85,11 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="text-center mt-14 reveal">
           <a href="#contact" className="btn-primary text-base animate-pulse-glow">
             Book Your Free 30-Min Call →
           </a>
-          <p className="text-muted text-sm mt-3">No obligation. We'll tell you exactly what you need.</p>
+          <p className="text-muted text-sm mt-3">No obligation. We'll tell you exactly what makes sense for your business.</p>
         </div>
       </div>
     </section>
