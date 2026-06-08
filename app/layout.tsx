@@ -22,6 +22,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${plusJakarta.variable} scroll-smooth`}>
+      <head>
+        {/* Prevent theme flash on load */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('fb-theme');if(t==='light')document.documentElement.classList.add('light');})();` }} />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

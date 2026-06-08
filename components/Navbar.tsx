@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 
 const links = [
   { label: 'Services', href: '#services' },
@@ -13,12 +13,47 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 30)
     window.addEventListener('scroll', handler)
+    const saved = localStorage.getItem('fb-theme')
+    if (saved === 'light') setTheme('light')
     return () => window.removeEventListener('scroll', handler)
   }, [])
+
+  function toggleTheme() {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    setTheme(next)
+    localStorage.setItem('fb-theme', next)
+    document.documentElement.classList.toggle('light', next === 'light')
+  }
+
+  const LogoDark = () => (
+    <div className="logo-dark items-center gap-2.5">
+      <svg width="36" height="32" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="1,33 11,5 21,33" fill="#FFD600"/>
+        <polygon points="8.5,13 21,33 15,33" fill="#000" fillOpacity="0.22"/>
+        <polygon points="19,33 29,5 39,33" fill="#FFD600"/>
+        <polygon points="26,13 19,33 25,33" fill="#000" fillOpacity="0.22"/>
+        <rect x="1" y="33.5" width="38" height="2.5" rx="1.25" fill="#FFD600"/>
+      </svg>
+      <span className="font-display font-bold text-xl text-white tracking-tight">
+        fame<span className="text-primary">boat</span>
+      </span>
+    </div>
+  )
+
+  const LogoLight = () => (
+    /* Once you upload public/logo.png this renders your actual logo */
+    <img
+      src="/logo.png"
+      alt="Fameboat"
+      className="logo-light h-10 w-auto object-contain"
+      style={{ mixBlendMode: 'multiply' }}
+    />
+  )
 
   return (
     <header
@@ -28,17 +63,9 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
-          <svg width="38" height="34" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="1,33 11,5 21,33" fill="#FFD600"/>
-            <polygon points="8.5,13 21,33 15,33" fill="#000" fillOpacity="0.22"/>
-            <polygon points="19,33 29,5 39,33" fill="#FFD600"/>
-            <polygon points="26,13 19,33 25,33" fill="#000" fillOpacity="0.22"/>
-            <rect x="1" y="33.5" width="38" height="2.5" rx="1.25" fill="#FFD600"/>
-          </svg>
-          <span className="font-display font-bold text-xl text-white tracking-tight">
-            fame<span className="text-primary">boat</span>
-          </span>
+        <a href="#" className="flex items-center">
+          <LogoDark />
+          <LogoLight />
         </a>
 
         {/* Desktop nav */}
@@ -54,21 +81,37 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:block">
+        {/* Right side: theme toggle + CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted hover:text-white transition-colors border border-white/8"
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <a href="#contact" className="btn-primary text-sm py-3 px-6 animate-pulse-glow">
             Get Free Consultation
           </a>
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile right */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted border border-white/8"
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          <button
+            className="text-white p-2"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
