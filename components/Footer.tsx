@@ -60,7 +60,6 @@ export default function Footer() {
               {[
                 ['Lead-Gen Websites', '#services'],
                 ['AI Marketing Retainer', '#services'],
-                ['Brand Identity', '#services'],
                 ['Pricing', '#pricing'],
                 ['Industries', '#industries'],
               ].map(([label, href]) => (

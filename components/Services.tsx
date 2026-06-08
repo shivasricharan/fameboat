@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Globe, Megaphone, Palette, MessageSquare, ArrowRight } from 'lucide-react'
+import { Globe, Megaphone, ArrowRight } from 'lucide-react'
 
 const services = [
   {
@@ -14,7 +14,6 @@ const services = [
     cta: '#pricing',
     ctaLabel: 'See Packages',
     border: 'border-primary/20',
-    glow: 'hover:shadow-primary/10',
   },
   {
     icon: <Megaphone size={26} />,
@@ -26,31 +25,6 @@ const services = [
     cta: '#contact',
     ctaLabel: 'Get a Quote',
     border: 'border-accent/20',
-    glow: 'hover:shadow-accent/10',
-  },
-  {
-    icon: <Palette size={26} />,
-    title: 'Brand Identity Kit',
-    tag: 'One-Time',
-    tagColor: 'bg-secondary/15 text-secondary border-secondary/25',
-    desc: 'Logo, colour palette, typography, and brand guidelines that make your business look premium and consistent.',
-    bullets: ['Logo design (3 concepts)', 'Brand colour & font guide', 'Business card + social kit', '₹15,000 one-time'],
-    cta: '#contact',
-    ctaLabel: 'Get Started',
-    border: 'border-secondary/20',
-    glow: 'hover:shadow-secondary/10',
-  },
-  {
-    icon: <MessageSquare size={26} />,
-    title: 'AI Marketing Workshop',
-    tag: 'Learn',
-    tagColor: 'bg-green-500/15 text-green-400 border-green-500/25',
-    desc: 'A 3-hour hands-on workshop for business owners. Learn to use AI tools to create content, run ads, and grow faster.',
-    bullets: ['Group sessions (5–15 people)', 'Tools: ChatGPT, Canva AI, Meta AI', 'Real exercises for your business', '₹5,000/person'],
-    cta: '#contact',
-    ctaLabel: 'Register Interest',
-    border: 'border-green-500/20',
-    glow: 'hover:shadow-green-500/10',
   },
 ]
 
@@ -82,8 +56,8 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map(({ icon, title, tag, tagColor, desc, bullets, cta, ctaLabel, border, glow }, i) => (
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {services.map(({ icon, title, tag, tagColor, desc, bullets, cta, ctaLabel, border }, i) => (
             <div
               key={title}
               className={`glass rounded-2xl p-8 border ${border} card-hover reveal flex flex-col`}

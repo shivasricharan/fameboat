@@ -9,8 +9,6 @@ const services = [
   'Lead-Gen Website (Premium – ₹24,999)',
   'Monthly Marketing (Ignite – ₹15K/mo)',
   'Monthly Marketing (Accelerate – ₹30K/mo)',
-  'Brand Identity Kit',
-  'AI Marketing Workshop',
   'Not sure yet – need advice',
 ]
 

@@ -126,7 +126,7 @@ function PlanCard({
     <div
       className={`relative flex flex-col rounded-2xl p-7 border transition-all duration-300 ${
         plan.popular
-          ? 'popular-ring bg-gradient-to-b from-dark-mid to-dark border-primary/40'
+          ? 'pricing-popular popular-ring bg-gradient-to-b from-dark-mid to-dark border-primary/40'
           : 'glass border-white/8 card-hover'
       }`}
     >

@@ -247,14 +247,48 @@ html.light .section-badge {
   color: #A07C00;
 }
 
-/* Popular ring */
+/* Popular pricing card — override dark gradient background */
+html.light .pricing-popular {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+}
 html.light .popular-ring {
   box-shadow: 0 0 0 2px #FFD600, 0 20px 60px rgba(255,214,0,0.15);
 }
+/* "Most Popular" badge: yellow bg + dark text readable */
+html.light .pricing-popular > div > .bg-primary {
+  color: #0A0A0A;
+}
 
-/* bg-dark-mid used in pricing */
+/* bg-white/* utility classes become subtle dark tint on light bg */
+html.light .bg-white\/5  { background-color: rgba(0,0,0,0.05) !important; }
+html.light .bg-white\/4  { background-color: rgba(0,0,0,0.04) !important; }
+html.light .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
+
+/* bg-dark-mid / bg-dark used in pricing + footer */
 html.light .bg-dark-mid { background-color: #FFFFFF !important; }
 html.light .bg-dark     { background-color: #F5F6FA !important; }
+
+/* btn-secondary — border and text visible on white bg */
+html.light .btn-secondary {
+  border-color: rgba(0,0,0,0.2) !important;
+  color: #0F1723 !important;
+}
+html.light .btn-secondary:hover {
+  color: #0F1723 !important;
+  background: rgba(255,214,0,0.08) !important;
+  border-color: rgba(180,140,0,0.4) !important;
+}
+
+/* Services / Why card icon containers */
+html.light .bg-white\/5,
+html.light [class*="bg-white/"] { background-color: rgba(0,0,0,0.05) !important; }
+
+/* HowItWorks step number (decorative) */
+html.light .text-white\/5 { color: rgba(0,0,0,0.06) !important; }
+
+/* Navbar mobile menu on light */
+html.light header .md\:hidden { background: rgba(245,246,250,0.98); }
 
 /* Form inputs */
 html.light .form-input {

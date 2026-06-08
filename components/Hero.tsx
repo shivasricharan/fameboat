@@ -95,7 +95,7 @@ export default function Hero() {
               <div className="md:col-span-2 space-y-3">
                 <div
                   className="h-9 rounded-lg w-3/4"
-                  style={{ background: 'linear-gradient(135deg, rgba(255,92,56,0.3), rgba(123,47,255,0.25))' }}
+                  style={{ background: 'linear-gradient(135deg, rgba(255,214,0,0.35), rgba(255,179,0,0.2))' }}
                 />
                 <div className="h-3 bg-white/5 rounded w-full" />
                 <div className="h-3 bg-white/5 rounded w-5/6" />
