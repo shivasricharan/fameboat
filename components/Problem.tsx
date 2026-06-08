@@ -49,8 +49,8 @@ export default function Problem() {
             <span className="gradient-text">is a Ticking Time Bomb.</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            Most businesses have no website, no lead system, and zero digital marketing strategy.
-            They're one algorithm change away from complete invisibility.
+            Most businesses have a website — but it just sits there. No leads, no strategy, no
+            growth. Being online isn't the same as growing online.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function Problem() {
             </div>
             <ul className="space-y-3">
               {[
-                'Only Instagram, no owned digital presence',
+                'Website exists but generates zero leads',
                 'Visitors come and go, nothing captured',
                 'Paying for posts with no measurable ROI',
                 'Competing on price because brand is weak',
