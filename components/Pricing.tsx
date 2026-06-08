@@ -78,6 +78,7 @@ const marketingPlans = [
       'Performance report',
       'Hashtag & caption writing',
     ],
+    cta: '#contact',
     popular: false,
   },
   {
@@ -93,6 +94,7 @@ const marketingPlans = [
       'Competitor analysis',
       'Bi-weekly strategy call',
     ],
+    cta: '#contact',
     popular: true,
   },
   {
@@ -108,6 +110,7 @@ const marketingPlans = [
       'Weekly strategy calls',
       'Priority response',
     ],
+    cta: '#contact',
     popular: false,
   },
 ]
