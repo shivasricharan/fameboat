@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Send, Phone, Mail, MapPin, CheckCircle } from 'lucide-react'
+import { Send, Mail, MapPin, CheckCircle } from 'lucide-react'
 
 const services = [
   'Lead-Gen Website (Starter – ₹8,999)',
@@ -83,12 +83,6 @@ export default function Contact() {
           {/* Left — info */}
           <div className="lg:col-span-2 space-y-6 reveal">
             {[
-              {
-                icon: <Phone size={20} />,
-                label: 'Call / WhatsApp',
-                value: '+91 98XXXXXXXX',
-                sub: 'Mon–Sat, 9am–7pm',
-              },
               {
                 icon: <Mail size={20} />,
                 label: 'Email',
