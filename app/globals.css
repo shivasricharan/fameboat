@@ -3,38 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --primary: #FFD600;
-  --secondary: #0AEFFF;
-  --accent: #FFB300;
-  --dark: #05091A;
+  --primary: #FF6B35;
+  --secondary: #17A2B8;
+  --accent: #FF8C55;
+  --dark: #0F1729;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #05091A;
+  background-color: #0F1729;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #05091A; }
-::-webkit-scrollbar-thumb { background: #FFD600; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #0F1729; }
+::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 3px; }
 
-/* Mesh gradient background */
 .mesh-bg {
-  background-color: #05091A;
+  background-color: #0F1729;
   background-image:
-    radial-gradient(at 15% 85%, rgba(255,214,0,0.10) 0px, transparent 55%),
-    radial-gradient(at 85% 15%, rgba(10,239,255,0.07) 0px, transparent 55%),
-    radial-gradient(at 50% 50%, rgba(255,179,0,0.06) 0px, transparent 65%);
+    radial-gradient(at 15% 85%, rgba(255,107,53,0.10) 0px, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(23,162,184,0.07) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(255,140,85,0.05) 0px, transparent 65%);
 }
 
 .section-bg {
-  background-color: #0D1526;
+  background-color: #141E35;
 }
 
-/* Glass card */
 .glass {
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(12px);
@@ -42,25 +40,23 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #FFD600 0%, #FFA500 50%, #FF6B00 100%);
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C55 60%, #FFAD7A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.gradient-text-blue {
-  background: linear-gradient(135deg, #0AEFFF 0%, #FFD600 100%);
+.gradient-text-teal {
+  background: linear-gradient(135deg, #17A2B8 0%, #FF6B35 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, #FFD600, #FFB300);
-  color: #0A0A0A;
+  background: linear-gradient(135deg, #FF6B35, #E55A25);
+  color: #ffffff;
   padding: 14px 30px;
   border-radius: 10px;
   font-weight: 700;
@@ -75,7 +71,7 @@ body {
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255,214,0,0.35);
+  box-shadow: 0 10px 30px rgba(255,107,53,0.40);
 }
 
 .btn-secondary {
@@ -93,37 +89,34 @@ body {
   cursor: pointer;
 }
 .btn-secondary:hover {
-  border-color: rgba(255,214,0,0.5);
-  background: rgba(255,214,0,0.06);
+  border-color: rgba(255,107,53,0.5);
+  background: rgba(255,107,53,0.08);
   transform: translateY(-2px);
 }
 
-/* Card hover */
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card-hover:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 50px rgba(0,0,0,0.35);
-  border-color: rgba(255,214,0,0.3) !important;
+  border-color: rgba(255,107,53,0.3) !important;
 }
 
-/* Gradient border card */
 .gradient-border-card {
   position: relative;
   border-radius: 16px;
-  background: #0D1526;
+  background: #141E35;
 }
 .gradient-border-card::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255,214,0,0.5), rgba(255,179,0,0.4));
+  background: linear-gradient(135deg, rgba(255,107,53,0.5), rgba(255,140,85,0.3));
   z-index: -1;
 }
 
-/* Reveal animation */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -134,28 +127,25 @@ body {
   transform: translateY(0);
 }
 
-/* Section badge */
 .section-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
   border-radius: 100px;
-  background: rgba(255,214,0,0.1);
-  border: 1px solid rgba(255,214,0,0.3);
-  color: #FFD600;
+  background: rgba(255,107,53,0.12);
+  border: 1px solid rgba(255,107,53,0.3);
+  color: #FF6B35;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-/* Pricing card popular */
 .popular-ring {
-  box-shadow: 0 0 0 2px #FFD600, 0 20px 60px rgba(255,214,0,0.2);
+  box-shadow: 0 0 0 2px #FF6B35, 0 20px 60px rgba(255,107,53,0.2);
 }
 
-/* Input styles */
 .form-input {
   width: 100%;
   background: rgba(255,255,255,0.05);
@@ -168,168 +158,63 @@ body {
   outline: none;
 }
 .form-input:focus {
-  border-color: rgba(255,214,0,0.5);
-  background: rgba(255,214,0,0.04);
+  border-color: rgba(255,107,53,0.5);
+  background: rgba(255,107,53,0.04);
 }
 .form-input::placeholder { color: #8892A4; }
 
-/* Noise texture overlay */
-.noise::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ─── Light mode overrides ─────────────────────────────── */
-html.light body {
-  background-color: #F5F6FA;
-  color: #0F1723;
-}
-
+/* ─── Light mode ────────────────────────────────────────── */
+html.light body { background-color: #F5F6FA; color: #0F1723; }
 html.light ::-webkit-scrollbar-track { background: #F5F6FA; }
-
 html.light .mesh-bg {
   background-color: #F5F6FA;
   background-image:
-    radial-gradient(at 15% 85%, rgba(255,214,0,0.14) 0px, transparent 55%),
-    radial-gradient(at 85% 15%, rgba(10,239,255,0.07) 0px, transparent 55%),
-    radial-gradient(at 50% 50%, rgba(255,179,0,0.07) 0px, transparent 65%);
+    radial-gradient(at 15% 85%, rgba(255,107,53,0.10) 0px, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(23,162,184,0.06) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(255,140,85,0.06) 0px, transparent 65%);
 }
-
-html.light .section-bg {
-  background-color: #FFFFFF;
-}
-
-html.light .glass {
-  background: rgba(255,255,255,0.75);
-  border-color: rgba(0,0,0,0.09);
-}
-
-html.light header {
-  background: rgba(245,246,250,0.92) !important;
-  border-color: rgba(0,0,0,0.08) !important;
-}
-
-/* Text */
+html.light .section-bg { background-color: #FFFFFF; }
+html.light .glass { background: rgba(255,255,255,0.80); border-color: rgba(0,0,0,0.09); }
+html.light header { background: rgba(245,246,250,0.92) !important; border-color: rgba(0,0,0,0.08) !important; }
 html.light .text-white  { color: #0F1723 !important; }
 html.light .text-muted  { color: #5A6478 !important; }
 html.light .text-gray-300 { color: #3D4A5C !important; }
 html.light h1, html.light h2, html.light h3 { color: #0F1723; }
-
-/* Borders */
 html.light .border-white\/8  { border-color: rgba(0,0,0,0.09) !important; }
 html.light .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
 html.light .border-white\/5  { border-color: rgba(0,0,0,0.05) !important; }
-
-/* Cards */
-html.light .card-hover:hover {
-  box-shadow: 0 24px 50px rgba(0,0,0,0.10);
-}
-
-/* gradient-border-card (With Fameboat panel) — light bg so text is readable */
-html.light .gradient-border-card {
-  background: #FFFFFF;
-}
-html.light .gradient-border-card::before {
-  background: linear-gradient(135deg, rgba(255,214,0,0.45), rgba(255,179,0,0.3));
-}
-html.light .gradient-border-card .text-white {
-  color: #0F1723 !important;
-}
-
-/* Section badge */
-html.light .section-badge {
-  background: rgba(255,214,0,0.12);
-  border-color: rgba(200,165,0,0.35);
-  color: #A07C00;
-}
-
-/* Popular pricing card — override dark gradient background */
-html.light .pricing-popular {
-  background-image: none !important;
-  background-color: #FFFFFF !important;
-}
-html.light .popular-ring {
-  box-shadow: 0 0 0 2px #FFD600, 0 20px 60px rgba(255,214,0,0.15);
-}
-/* "Most Popular" badge: yellow bg + dark text readable */
-html.light .pricing-popular > div > .bg-primary {
-  color: #0A0A0A;
-}
-
-/* bg-white/* utility classes become subtle dark tint on light bg */
+html.light .card-hover:hover { box-shadow: 0 24px 50px rgba(0,0,0,0.10); }
+html.light .gradient-border-card { background: #FFFFFF; }
+html.light .gradient-border-card::before { background: linear-gradient(135deg, rgba(255,107,53,0.4), rgba(255,140,85,0.25)); }
+html.light .gradient-border-card .text-white { color: #0F1723 !important; }
+html.light .section-badge { background: rgba(255,107,53,0.10); border-color: rgba(200,80,30,0.3); color: #C0441A; }
+html.light .pricing-popular { background-image: none !important; background-color: #FFFFFF !important; }
+html.light .popular-ring { box-shadow: 0 0 0 2px #FF6B35, 0 20px 60px rgba(255,107,53,0.15); }
 html.light .bg-white\/5  { background-color: rgba(0,0,0,0.05) !important; }
 html.light .bg-white\/4  { background-color: rgba(0,0,0,0.04) !important; }
-html.light .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
-
-/* bg-dark-mid / bg-dark used in pricing + footer */
 html.light .bg-dark-mid { background-color: #FFFFFF !important; }
 html.light .bg-dark     { background-color: #F5F6FA !important; }
-
-/* btn-secondary — border and text visible on white bg */
-html.light .btn-secondary {
-  border-color: rgba(0,0,0,0.2) !important;
-  color: #0F1723 !important;
-}
-html.light .btn-secondary:hover {
-  color: #0F1723 !important;
-  background: rgba(255,214,0,0.08) !important;
-  border-color: rgba(180,140,0,0.4) !important;
-}
-
-/* Services / Why card icon containers */
-html.light .bg-white\/5,
-html.light [class*="bg-white/"] { background-color: rgba(0,0,0,0.05) !important; }
-
-/* HowItWorks step number (decorative) */
+html.light .btn-secondary { border-color: rgba(0,0,0,0.2) !important; color: #0F1723 !important; }
+html.light .btn-secondary:hover { color: #0F1723 !important; background: rgba(255,107,53,0.08) !important; border-color: rgba(200,80,30,0.4) !important; }
 html.light .text-white\/5 { color: rgba(0,0,0,0.06) !important; }
-
-/* Navbar mobile menu on light */
-html.light header .md\:hidden { background: rgba(245,246,250,0.98); }
-
-/* Form inputs */
-html.light .form-input {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.12);
-  color: #0F1723;
-}
+html.light .form-input { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #0F1723; }
 html.light .form-input::placeholder { color: #9AA3B0; }
-html.light .form-input:focus {
-  border-color: rgba(180,140,0,0.5);
-  background: rgba(255,214,0,0.04);
-}
+html.light .form-input:focus { border-color: rgba(200,80,30,0.5); background: rgba(255,107,53,0.04); }
 
-/* Footer logo — white pill in dark mode, plain in light mode */
 .fb-logo-wrap {
   background: #ffffff;
   border-radius: 10px;
   padding: 6px 12px;
   display: inline-flex;
 }
-html.light .fb-logo-wrap {
-  background: transparent;
-  padding: 0;
-}
+html.light .fb-logo-wrap { background: transparent; padding: 0; }
 
-/* Gradient text stays readable */
-html.light .gradient-text-blue {
-  background: linear-gradient(135deg, #0080AA 0%, #A07C00 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-/* ────────────────────────────────────────────────────────── */
-
-/* Pulse glow animation */
+/* ─── Animations ─────────────────────────────────────────── */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,214,0,0); }
-  50% { box-shadow: 0 0 20px 4px rgba(255,214,0,0.3); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,53,0); }
+  50% { box-shadow: 0 0 20px 4px rgba(255,107,53,0.35); }
 }
-.animate-pulse-glow {
-  animation: pulse-glow 2.5s ease-in-out infinite;
-}
+.animate-pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
 
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(16px); }
@@ -340,3 +225,9 @@ html.light .gradient-text-blue {
   animation-delay: 0.3s;
   opacity: 0;
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }

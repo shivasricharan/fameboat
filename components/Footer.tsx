@@ -7,19 +7,14 @@ export default function Footer() {
     <footer className="border-t border-white/8 bg-dark py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-10">
-          {/* Brand */}
           <div className="md:col-span-2">
             <a href="#" className="flex items-center mb-4">
               <div className="fb-logo-wrap">
-                <img
-                  src="/fameboat.png"
-                  alt="Fameboat"
-                  style={{ height: '44px', width: 'auto' }}
-                />
+                <img src="/fameboat.png" alt="Fameboat" style={{ height: '44px', width: 'auto' }} />
               </div>
             </a>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
-              Professional websites and digital marketing for architects, consultants, clinics, and associations — powered by Google Sheets so your team runs everything.
+              Your in-house growth team. We design, build, and market your digital presence — strategy first, results measured in revenue.
             </p>
             <div className="flex gap-3">
               {[
@@ -41,26 +36,22 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
           <div>
             <div className="text-white font-semibold mb-4 text-sm">Services</div>
             <ul className="space-y-2.5">
               {[
-                ['Professional Website', '#services'],
-                ['Monthly Marketing', '#services'],
+                ['Web Design & Build', '#services'],
+                ['Growth Marketing', '#services'],
+                ['Brand Positioning', '#services'],
                 ['Pricing', '#pricing'],
-                ['Case Studies', '#'],
               ].map(([label, href]) => (
                 <li key={label}>
-                  <a href={href} className="text-muted hover:text-white text-sm transition-colors">
-                    {label}
-                  </a>
+                  <a href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <div className="text-white font-semibold mb-4 text-sm">Get in Touch</div>
             <ul className="space-y-2.5 text-sm text-muted">
@@ -70,19 +61,16 @@ export default function Footer() {
                 </a>
               </li>
               <li>Hyderabad, Telangana</li>
+              <li>Serving all of India</li>
               <li className="text-white font-medium">
-                <a href="#contact" className="hover:text-primary transition-colors">
-                  → Book a Free Call
-                </a>
+                <a href="#contact" className="hover:text-primary transition-colors">→ Book a Free Call</a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-muted text-xs">
-            © {year} Fameboat. All rights reserved. Hyderabad, India.
-          </p>
+          <p className="text-muted text-xs">© {year} Fameboat. All rights reserved. Hyderabad, India.</p>
           <div className="flex gap-4 text-xs text-muted">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

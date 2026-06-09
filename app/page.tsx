@@ -1,11 +1,12 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import HowItWorks from '@/components/HowItWorks'
+import Founder from '@/components/Founder'
 import Services from '@/components/Services'
+import HowItWorks from '@/components/HowItWorks'
 import CaseStudies from '@/components/CaseStudies'
-import Pricing from '@/components/Pricing'
-import Industries from '@/components/Industries'
 import WhyFameboat from '@/components/WhyFameboat'
+import Industries from '@/components/Industries'
+import Pricing from '@/components/Pricing'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
@@ -15,12 +16,13 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <HowItWorks />
+        <Founder />
         <Services />
+        <HowItWorks />
         <CaseStudies />
-        <Pricing />
-        <Industries />
         <WhyFameboat />
+        <Industries />
+        <Pricing />
         <Contact />
       </main>
       <Footer />

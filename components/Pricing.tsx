@@ -5,39 +5,66 @@ import { ArrowRight, Check } from 'lucide-react'
 
 const plans = [
   {
-    name: 'Professional Website',
-    from: '₹15,000',
-    period: 'one-time',
-    desc: 'Custom-designed website with Google Sheets as the backend. Your team manages everything — content, enquiries, registrations, automated emails — without any developer.',
+    name: 'Web Design & Build',
+    from: '₹3,00,000',
+    period: 'onwards',
+    desc: 'Custom website designed for your sales cycle. You own the codebase, your team runs it independently.',
     includes: [
-      'Custom design — not a template',
-      'Google Sheets backend (updates, leads, events)',
-      'Automated emails via Apps Script',
-      'Mobile-first + SEO optimised',
-      'Live in 5–7 days',
-      'You own it. Forever.',
+      'Brand strategy + messaging workshop',
+      'Custom design (desktop + mobile)',
+      'Professional copywriting',
+      'Google Sheets / CRM integration',
+      'SEO + analytics setup',
+      '2 rounds of revisions',
+      '30-day post-launch support',
     ],
     cta: '#contact',
-    ctaLabel: 'Book a Free Call',
+    ctaLabel: 'Discuss Your Website',
     popular: true,
   },
   {
-    name: 'Monthly Marketing',
-    from: '₹15,000',
+    name: 'Growth Marketing',
+    from: '₹2,00,000',
     period: '/month',
-    desc: 'Full digital marketing handled for you. Social content, ads, SEO, and strategy — all powered by AI tools and two decades of marketing experience.',
+    desc: 'Full-funnel marketing management. Paid ads, content, email, and monthly reporting on ROI.',
     includes: [
-      'Social media content + strategy',
-      'Meta Ads + Google Ads management',
-      'Monthly performance report',
-      'AI-powered content creation',
-      'SEO + WhatsApp campaigns',
-      'Cancel anytime',
+      'Google Ads + Meta Ads setup & management',
+      'Social media content + posting',
+      'Blog writing (2–4 posts/month)',
+      'Email nurture sequences',
+      'Monthly performance reports',
+      'Monthly optimization calls',
+      'Minimum 3-month engagement',
     ],
     cta: '#contact',
-    ctaLabel: 'Get a Quote',
+    ctaLabel: 'Book Strategy Call',
     popular: false,
   },
+  {
+    name: 'Brand Positioning',
+    from: '₹2,00,000',
+    period: 'one-time',
+    desc: 'Clarity on why customers choose you. Foundation for every website, ad, and sales conversation.',
+    includes: [
+      'Founder + customer interviews',
+      'Competitor + market analysis',
+      'Positioning statement',
+      'Messaging pillars + brand voice',
+      'Visual brand guidelines (Figma)',
+      'Competitor differentiation chart',
+      '4–6 week timeline',
+    ],
+    cta: '#contact',
+    ctaLabel: 'Clarify Your Position',
+    popular: false,
+  },
+]
+
+const faqs = [
+  { q: 'How do you price projects?', a: 'Transparent model: we scope the project in a free 30-min call, then give you a fixed estimate. No hidden costs, no scope creep surprises.' },
+  { q: 'Can we start with just one service?', a: 'Yes. Many clients start with brand positioning, then add a website, then grow into marketing. You choose the pace.' },
+  { q: 'What happens after the project ends?', a: '30 days of support included. After that, optional maintenance retainer if you want ongoing help.' },
+  { q: 'Do you offer payment plans?', a: '50% upfront, 50% at completion for project work. Monthly billing for retainers.' },
 ]
 
 export default function Pricing() {
@@ -46,27 +73,28 @@ export default function Pricing() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.target.classList.toggle('visible', e.isIntersecting)),
-      { threshold: 0.08 }
+      { threshold: 0.06 }
     )
     ref.current?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section ref={ref} id="pricing" className="py-24 section-bg">
-      <div className="max-w-5xl mx-auto px-6">
+    <section ref={ref} id="pricing" className="py-24 mesh-bg">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 reveal">
           <div className="section-badge mb-5">Pricing</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
-            Simple, Honest Pricing.
+            Transparent Pricing.
             <span className="gradient-text"> No Surprises.</span>
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto">
-            Every project is scoped to your actual needs. These are starting points — book a call and we'll give you an exact quote.
+            Every project is scoped to your actual needs. Book a call and we'll give you an exact
+            quote within 24 hours.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 reveal">
+        <div className="grid lg:grid-cols-3 gap-6 mb-16 reveal">
           {plans.map((plan) => (
             <div
               key={plan.name}
@@ -77,20 +105,20 @@ export default function Pricing() {
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-black text-xs font-bold px-4 py-1.5 rounded-full">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full">
                   Most Requested
                 </div>
               )}
 
-              <div className="mb-6">
+              <div className="mb-5">
                 <h3 className="font-display text-xl font-bold text-white mb-2">{plan.name}</h3>
                 <p className="text-muted text-sm leading-relaxed">{plan.desc}</p>
               </div>
 
               <div className="mb-6">
-                <span className="text-sm text-muted">Starting from</span>
+                <span className="text-xs text-muted">Starting from</span>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-4xl font-bold text-white">{plan.from}</span>
+                  <span className="text-3xl font-bold text-white">{plan.from}</span>
                   <span className="text-muted text-sm">{plan.period}</span>
                 </div>
               </div>
@@ -114,14 +142,16 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-10 glass rounded-2xl p-6 border border-white/8 text-center reveal">
-          <p className="text-muted text-sm">
-            Not sure what you need?{' '}
-            <a href="#contact" className="text-primary font-semibold hover:underline">
-              Book a free 30-minute call
-            </a>{' '}
-            — we'll assess your situation and tell you exactly what makes sense. No obligation.
-          </p>
+        <div className="max-w-3xl mx-auto reveal">
+          <h3 className="font-display text-2xl font-bold text-white text-center mb-8">Common Questions</h3>
+          <div className="space-y-4">
+            {faqs.map(({ q, a }) => (
+              <div key={q} className="glass rounded-2xl p-6 border border-white/8">
+                <div className="font-semibold text-white mb-2 text-sm">{q}</div>
+                <p className="text-muted text-sm leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

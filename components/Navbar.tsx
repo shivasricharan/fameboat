@@ -5,9 +5,9 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 
 const links = [
   { label: 'Services', href: '#services' },
-  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Case Studies', href: '#case-studies' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'Industries', href: '#industries' },
+  { label: 'How It Works', href: '#how-it-works' },
 ]
 
 export default function Navbar() {
@@ -37,31 +37,20 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
         <a href="#" className="flex items-center">
           <div className={theme === 'dark' ? 'bg-white rounded-xl px-3 py-1.5' : ''}>
-            <img
-              src="/fameboat.png"
-              alt="Fameboat"
-              style={{ height: '44px', width: 'auto' }}
-            />
+            <img src="/fameboat.png" alt="Fameboat" style={{ height: '44px', width: 'auto' }} />
           </div>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {links.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="text-sm text-muted hover:text-white transition-colors font-medium"
-            >
+            <a key={label} href={href} className="text-sm text-muted hover:text-white transition-colors font-medium">
               {label}
             </a>
           ))}
         </nav>
 
-        {/* Right side: theme toggle + CTA */}
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={toggleTheme}
@@ -71,48 +60,29 @@ export default function Navbar() {
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <a href="#contact" className="btn-primary text-sm py-3 px-6 animate-pulse-glow">
-            Get Free Consultation
+            Free Strategy Call
           </a>
         </div>
 
-        {/* Mobile right */}
         <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted border border-white/8"
-          >
+          <button onClick={toggleTheme} aria-label="Toggle theme" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted border border-white/8">
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <button
-            className="text-white p-2"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
+          <button className="text-white p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden glass border-t border-white/5 px-6 py-6 space-y-4">
           {links.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              onClick={() => setOpen(false)}
-              className="block text-base text-white font-medium py-2"
-            >
+            <a key={label} href={href} onClick={() => setOpen(false)} className="block text-base text-white font-medium py-2">
               {label}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="btn-primary w-full justify-center mt-2"
-          >
-            Get Free Consultation
+          <a href="#contact" onClick={() => setOpen(false)} className="btn-primary w-full justify-center mt-2">
+            Free Strategy Call
           </a>
         </div>
       )}

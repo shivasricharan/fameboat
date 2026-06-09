@@ -1,17 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-plus-jakarta' })
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-poppins',
+})
 
 export const metadata: Metadata = {
-  title: 'Fameboat — Lead-Gen Websites & AI Marketing for Every Business',
-  description: 'Fameboat builds websites that capture leads directly to Google Sheets and runs AI-powered marketing for any business ready to grow online. Starting at ₹8,999.',
-  keywords: 'business website india, digital marketing, local business website, lead generation website, AI marketing, google sheets crm, affordable website design, go online fast',
+  title: 'Fameboat — Your In-House Growth Team',
+  description: 'Fameboat is a founder-led marketing agency that designs, builds, and markets your digital presence. Premium websites and growth marketing for service businesses. Based in Hyderabad, India.',
+  keywords: 'digital marketing agency india, website design hyderabad, growth marketing, service business marketing, founder-led agency, brand strategy india',
   openGraph: {
-    title: 'Fameboat — Your Business Deserves More Than a Social Media Profile',
-    description: 'We build lead-capturing websites and run AI-powered marketing for businesses ready to grow online. Leads go straight to your Google Sheet.',
+    title: 'Fameboat — Your In-House Growth Team. Without the Overhead.',
+    description: 'We design, build, and market your digital presence. Strategy first. Results measured in revenue.',
     url: 'https://fameboat.com',
     siteName: 'Fameboat',
     locale: 'en_IN',
@@ -21,9 +25,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
       <head>
-        {/* Prevent theme flash on load */}
         <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('fb-theme');if(t==='light')document.documentElement.classList.add('light');})();` }} />
       </head>
       <body className="font-sans antialiased">{children}</body>
