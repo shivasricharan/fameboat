@@ -61,12 +61,6 @@ export default function TheProblem() {
           ))}
         </div>
 
-        {/* The insight */}
-        <div className="mt-12 glass rounded-2xl p-8 border border-primary/20 bg-primary/5 text-center reveal">
-          <p className="font-serif text-xl md:text-2xl text-white leading-relaxed italic">
-            "You're not worse than your competitors. They're just positioned better. Let's change that."
-          </p>
-        </div>
       </div>
     </section>
   )
