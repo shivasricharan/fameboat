@@ -4,22 +4,22 @@ import { useEffect, useRef, useState } from 'react'
 import { Send, Mail, MapPin, CheckCircle } from 'lucide-react'
 
 const challenges = [
-  'Losing deals to competitors with better positioning',
-  'Website looks the same as competitors',
-  'Customers don\'t know why to choose me',
-  'Competing on price instead of value',
-  'Weak or outdated online presence',
+  'No visibility on where leads go',
+  'Follow-ups falling through the cracks',
+  'Website doesn\'t generate enquiries',
+  'No system to track opportunities',
+  'Need dashboards or automation',
   'Not sure — need an assessment',
 ]
 
 const businessTypes = [
-  'Architecture / Interior Design',
+  'Interior Design',
+  'Architecture',
+  'Consulting',
+  'Agency',
+  'Clinic / Healthcare',
   'Real Estate',
-  'Coaching / Training',
-  'Dental / Healthcare',
-  'Professional Services (Legal/Finance/Consulting)',
-  'Photography / Media',
-  'Wedding / Events',
+  'Professional Services',
   'Other service business',
 ]
 
@@ -69,14 +69,11 @@ export default function Contact() {
     <section ref={ref} id="contact" className="py-24 section-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12 reveal">
-          <div className="section-badge mb-5">Book a Call</div>
+          <div className="section-badge mb-5">Get Started</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Ready to change
-            <span className="gradient-text"> how you compete?</span>
+            Turn scattered opportunities into
+            <span className="gradient-text"> a growth system.</span>
           </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
-            Tell us about your business and your biggest competitive challenge. We'll come prepared.
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-10">
@@ -98,7 +95,7 @@ export default function Contact() {
             <div className="glass rounded-2xl p-6 border border-primary/20 bg-primary/5">
               <div className="font-bold text-white mb-3 text-sm">What happens next</div>
               <ul className="space-y-2">
-                {['30-minute positioning call', 'We assess your market and competitors', 'You get a clear recommendation', 'No obligation to proceed'].map((p) => (
+                {['We review your requirements', 'Quick call to understand your business', 'You get a clear recommendation', 'No obligation to proceed'].map((p) => (
                   <li key={p} className="flex items-center gap-2 text-sm text-gray-300">
                     <CheckCircle size={13} className="text-green-400 flex-shrink-0" />
                     {p}
@@ -115,7 +112,7 @@ export default function Contact() {
                   <CheckCircle size={28} className="text-green-400" />
                 </div>
                 <h3 className="font-display text-2xl font-bold text-white mb-2">Got it!</h3>
-                <p className="text-muted max-w-sm mb-5">We'll get back to you within 24 hours with a time for the call.</p>
+                <p className="text-muted max-w-sm mb-5">We&apos;ll get back to you within 24 hours.</p>
                 <button onClick={() => setStatus('idle')} className="btn-secondary text-sm py-2.5 px-5">Submit another</button>
               </div>
             ) : (
@@ -123,7 +120,7 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">Name <span className="text-accent">*</span></label>
-                    <input name="name" value={form.name} onChange={handleChange} required placeholder="Raj Sharma" className="form-input" />
+                    <input name="name" value={form.name} onChange={handleChange} required placeholder="Your name" className="form-input" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">Phone <span className="text-accent">*</span></label>
@@ -134,7 +131,7 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                    <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="raj@example.com" className="form-input" />
+                    <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@example.com" className="form-input" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">Business type</label>
@@ -146,16 +143,16 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Biggest competitive challenge</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">What do you need help with?</label>
                   <select name="service" value={form.service} onChange={handleChange} className="form-input">
-                    <option value="" disabled>What's hurting you most?</option>
+                    <option value="" disabled>Select a challenge...</option>
                     {challenges.map((c) => <option key={c} value={c} className="bg-dark-mid">{c}</option>)}
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Anything else we should know?</label>
-                  <textarea name="message" value={form.message} onChange={handleChange} rows={3} placeholder="Tell us about your business, your market, who you're losing to..." className="form-input resize-none" />
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Anything else?</label>
+                  <textarea name="message" value={form.message} onChange={handleChange} rows={3} placeholder="Tell us about your business..." className="form-input resize-none" />
                 </div>
 
                 {status === 'error' && (
@@ -166,7 +163,7 @@ export default function Contact() {
                   {status === 'loading' ? (
                     <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</>
                   ) : (
-                    <>Book Positioning Call <Send size={17} /></>
+                    <>Let&apos;s Talk <Send size={17} /></>
                   )}
                 </button>
                 <p className="text-center text-muted text-xs">Your info is private. We never spam or sell your details.</p>

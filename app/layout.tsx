@@ -7,12 +7,12 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400','600','700','800'],
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400','700'], variable: '--font-playfair' })
 
 export const metadata: Metadata = {
-  title: 'Fameboat — Positioning First. Growth Second.',
-  description: 'We help service businesses stand out from competitors. Clear positioning, professional websites, and growth marketing that attracts the right customers.',
-  keywords: 'positioning strategy india, service business marketing, website design hyderabad, brand differentiation, competitive positioning',
+  title: 'Fameboat | Growth Systems for Service Businesses',
+  description: 'Fameboat helps service businesses improve positioning, visibility, lead management, dashboards, and business systems.',
+  keywords: 'growth systems, service business, positioning, lead management, dashboards, automation, websites, hyderabad',
   openGraph: {
-    title: 'Fameboat — Why Your Competitors Are Winning (And How We Change That)',
-    description: 'Most service businesses look identical to competitors. You don\'t need to. We position you to stand out.',
+    title: 'Fameboat | Growth Systems for Service Businesses',
+    description: 'Fameboat helps service businesses improve positioning, visibility, lead management, dashboards, and business systems.',
     url: 'https://fameboat.com',
     siteName: 'Fameboat',
     locale: 'en_IN',

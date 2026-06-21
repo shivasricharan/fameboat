@@ -1,42 +1,50 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Search, Target, Palette, Rocket } from 'lucide-react'
-import Link from 'next/link'
+import { Target, Crosshair, BarChart3, LineChart, Lightbulb } from 'lucide-react'
 
 const steps = [
   {
-    icon: <Search size={24} />,
+    icon: <Target size={24} />,
     number: '01',
-    title: 'Discover',
-    desc: 'We research your market, your competitors, and why your best customers actually choose you. Most businesses are surprised by what they find.',
+    title: 'Position your business',
+    desc: 'Clarify who you serve, what you offer, and why it matters.',
     color: 'border-primary/25 bg-primary/5',
     iconColor: 'text-primary',
     iconBg: 'bg-primary/15',
   },
   {
-    icon: <Target size={24} />,
+    icon: <Crosshair size={24} />,
     number: '02',
-    title: 'Position',
-    desc: 'We define your unique market position — who you serve, what problem you solve, and why you\'re genuinely different from competitors.',
+    title: 'Capture opportunities',
+    desc: 'Build systems that capture leads from every channel.',
     color: 'border-violet-400/25 bg-violet-500/5',
     iconColor: 'text-violet-400',
     iconBg: 'bg-violet-500/15',
   },
   {
-    icon: <Palette size={24} />,
+    icon: <BarChart3 size={24} />,
     number: '03',
-    title: 'Brand',
-    desc: 'Design, copy, and messaging built around your position. Your website and all communications say "why you" before asking for the sale.',
+    title: 'Track leads and follow-ups',
+    desc: 'See every lead, stage, owner, and follow-up in one place.',
     color: 'border-accent/25 bg-accent/5',
     iconColor: 'text-accent',
     iconBg: 'bg-accent/15',
   },
   {
-    icon: <Rocket size={24} />,
+    icon: <LineChart size={24} />,
     number: '04',
-    title: 'Deliver',
-    desc: 'Go live and grow. Content, email, and ads that amplify your position — attracting right customers, filtering wrong ones.',
+    title: 'Measure what matters',
+    desc: 'Dashboards that show conversion, pipeline, and revenue.',
+    color: 'border-blue-500/25 bg-blue-500/5',
+    iconColor: 'text-blue-400',
+    iconBg: 'bg-blue-500/15',
+  },
+  {
+    icon: <Lightbulb size={24} />,
+    number: '05',
+    title: 'Improve decisions',
+    desc: 'Use data to focus on what works and fix what doesn\'t.',
     color: 'border-green-500/25 bg-green-500/5',
     iconColor: 'text-green-400',
     iconBg: 'bg-green-500/15',
@@ -56,42 +64,33 @@ export default function Framework() {
   }, [])
 
   return (
-    <section ref={ref} className="py-24 mesh-bg">
+    <section ref={ref} id="how-it-works" className="py-24 mesh-bg">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12 reveal">
-          <div className="section-badge mb-5">How We Do It</div>
+          <div className="section-badge mb-5">How It Works</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            The positioning
-            <span className="gradient-text"> framework.</span>
+            Connect the
+            <span className="gradient-text"> missing pieces.</span>
           </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
-            Four steps from "looks like everyone else" to "clearly the right choice."
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {steps.map(({ icon, number, title, desc, color, iconColor, iconBg }, i) => (
             <div
               key={number}
-              className={`glass rounded-2xl p-7 border card-hover reveal flex flex-col ${color}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              className={`glass rounded-2xl p-6 border card-hover reveal flex flex-col ${color}`}
+              style={{ transitionDelay: `${i * 0.08}s` }}
             >
-              <div className="flex items-center justify-between mb-5">
-                <div className={`w-11 h-11 rounded-xl ${iconBg} flex items-center justify-center ${iconColor}`}>
+              <div className="flex items-center justify-between mb-4">
+                <div className={`w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center ${iconColor}`}>
                   {icon}
                 </div>
-                <span className="text-4xl font-bold text-white/5">{number}</span>
+                <span className="text-3xl font-bold text-white/5">{number}</span>
               </div>
-              <h3 className="font-display text-lg font-bold text-white mb-2">{title}</h3>
+              <h3 className="font-display text-base font-bold text-white mb-2">{title}</h3>
               <p className="text-muted text-sm leading-relaxed flex-1">{desc}</p>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-10 reveal">
-          <Link href="/how-we-work" className="btn-violet text-sm">
-            See the full process →
-          </Link>
         </div>
       </div>
     </section>

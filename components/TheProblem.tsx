@@ -1,22 +1,36 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { PhoneOff, EyeOff, HelpCircle, XCircle } from 'lucide-react'
 
 const problems = [
   {
-    icon: '🪞',
-    title: 'You look like everyone else',
-    desc: 'Your website, your services, your messaging — all sound the same as the 10 other businesses in your space. Customers can\'t tell the difference.',
+    icon: <PhoneOff size={24} />,
+    title: 'Lost follow-ups',
+    desc: 'Leads slip through because no one tracks who was contacted and when.',
+    color: 'text-red-400',
+    bg: 'bg-red-500/15',
   },
   {
-    icon: '💸',
-    title: 'So they pick the cheapest option',
-    desc: 'When there\'s no clear difference, price becomes the only differentiator. You end up discounting to win deals you should have won on merit.',
+    icon: <EyeOff size={24} />,
+    title: 'No visibility',
+    desc: 'You don\'t know where leads come from or which channels actually work.',
+    color: 'text-amber-400',
+    bg: 'bg-amber-500/15',
   },
   {
-    icon: '🏆',
-    title: 'While competitors with better positioning win',
-    desc: 'It\'s not that they\'re better at the work. They just communicate their difference more clearly. That\'s the only thing standing between you and them.',
+    icon: <HelpCircle size={24} />,
+    title: 'Unclear priorities',
+    desc: 'Without data, every lead looks the same. Time gets spent on the wrong ones.',
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/15',
+  },
+  {
+    icon: <XCircle size={24} />,
+    title: 'Missed opportunities',
+    desc: 'Enquiries from ads, forms, and referrals go cold before anyone follows up.',
+    color: 'text-violet-400',
+    bg: 'bg-violet-500/15',
   },
 ]
 
@@ -36,31 +50,32 @@ export default function TheProblem() {
     <section ref={ref} id="problem" className="py-24 section-bg">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12 reveal">
-          <div className="section-badge mb-5">The Real Problem</div>
+          <div className="section-badge mb-5">The Problem</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-            You're competing on price
+            Scattered opportunities
             <br />
-            <span className="gradient-text">because nobody sees the difference.</span>
+            <span className="gradient-text">quietly kill growth.</span>
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto">
-            Leads aren't the constraint. The right leads — customers who choose you because of what makes you different — that's what's missing.
+            Leads come from WhatsApp, referrals, calls, forms, ads, and teams. Most businesses simply don&apos;t know where opportunities disappear.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {problems.map(({ icon, title, desc }, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {problems.map(({ icon, title, desc, color, bg }, i) => (
             <div
               key={title}
               className="glass rounded-2xl p-7 border border-white/8 card-hover reveal"
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className="text-4xl mb-4">{icon}</div>
+              <div className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center ${color} mb-4`}>
+                {icon}
+              </div>
               <h3 className="font-display text-lg font-bold text-white mb-2">{title}</h3>
               <p className="text-muted text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )

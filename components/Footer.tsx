@@ -14,7 +14,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
-              Positioning first. Growth second. We help service businesses stand out from competitors and close better customers.
+              Growth systems for service businesses. Positioning, websites, lead capture, dashboards, and automation — connected.
             </p>
             <div className="flex gap-3">
               {[
@@ -31,9 +31,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <div className="text-white font-semibold mb-4 text-sm">Services</div>
+            <div className="text-white font-semibold mb-4 text-sm">Solutions</div>
             <ul className="space-y-2.5">
-              {[['Positioning Strategy', '/services#positioning'], ['Positioned Website', '/services#website'], ['Launch + Growth', '/services#growth'], ['Pricing', '/pricing']].map(([label, href]) => (
+              {[
+                ['Positioning Sprint', '/#solutions'],
+                ['Growth Website', '/#solutions'],
+                ['Lead Visibility', '/#solutions'],
+                ['Dashboards', '/#solutions'],
+              ].map(([label, href]) => (
                 <li key={label}><Link href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</Link></li>
               ))}
             </ul>
@@ -42,7 +47,11 @@ export default function Footer() {
           <div>
             <div className="text-white font-semibold mb-4 text-sm">Company</div>
             <ul className="space-y-2.5">
-              {[['How We Work', '/how-we-work'], ['About', '/about'], ['Contact', '/#contact']].map(([label, href]) => (
+              {[
+                ['How It Works', '/#how-it-works'],
+                ['Pricing', '/#pricing'],
+                ['Contact', '/#contact'],
+              ].map(([label, href]) => (
                 <li key={label}><Link href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</Link></li>
               ))}
               <li><a href="mailto:shivacharan.s@gmail.com" className="text-muted hover:text-white text-sm transition-colors">shivacharan.s@gmail.com</a></li>
@@ -51,8 +60,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-muted text-xs">© {year} Fameboat. All rights reserved. Hyderabad, India.</p>
-          <p className="text-muted text-xs italic">"Positioning First. Growth Second."</p>
+          <p className="text-muted text-xs">&copy; {year} Fameboat. All rights reserved. Hyderabad, India.</p>
+          <p className="text-muted text-xs italic">&ldquo;Growth systems for service businesses.&rdquo;</p>
         </div>
       </div>
     </footer>

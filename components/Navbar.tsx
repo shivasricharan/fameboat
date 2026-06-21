@@ -6,13 +6,11 @@ import { usePathname } from 'next/navigation'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 
 const links = [
-  { label: 'Services', href: '/services' },
-  { label: 'How We Work', href: '/how-we-work' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'About', href: '/about' },
+  { label: 'Solutions', href: '/#solutions' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Pricing', href: '/#pricing' },
 ]
-
-const CALENDLY_URL = '#contact'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -35,6 +33,8 @@ export default function Navbar() {
     document.documentElement.classList.toggle('light', next === 'light')
   }
 
+  const isHome = pathname === '/'
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-white/5 py-3' : 'py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -46,15 +46,13 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center gap-7">
           {links.map(({ label, href }) => (
-            <Link
+            <a
               key={label}
-              href={href}
-              className={`text-sm font-medium transition-colors ${
-                pathname === href ? 'text-white' : 'text-muted hover:text-white'
-              }`}
+              href={isHome ? href.replace('/', '') : href}
+              className="text-sm font-medium transition-colors text-muted hover:text-white"
             >
               {label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -62,8 +60,8 @@ export default function Navbar() {
           <button onClick={toggleTheme} aria-label="Toggle theme" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted hover:text-white transition-colors border border-white/8">
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <a href={CALENDLY_URL} className="btn-primary text-sm py-2.5 px-5 animate-pulse-glow">
-            Book Positioning Call
+          <a href={isHome ? '#contact' : '/#contact'} className="btn-primary text-sm py-2.5 px-5 animate-pulse-glow">
+            Let&apos;s Talk
           </a>
         </div>
 
@@ -80,12 +78,12 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden glass border-t border-white/5 px-6 py-5 space-y-4">
           {links.map(({ label, href }) => (
-            <Link key={label} href={href} onClick={() => setOpen(false)} className="block text-base text-white font-medium py-2">
+            <a key={label} href={isHome ? href.replace('/', '') : href} onClick={() => setOpen(false)} className="block text-base text-white font-medium py-2">
               {label}
-            </Link>
+            </a>
           ))}
-          <a href={CALENDLY_URL} onClick={() => setOpen(false)} className="btn-primary w-full justify-center mt-2">
-            Book Positioning Call
+          <a href={isHome ? '#contact' : '/#contact'} onClick={() => setOpen(false)} className="btn-primary w-full justify-center mt-2">
+            Let&apos;s Talk
           </a>
         </div>
       )}
