@@ -1,5 +1,7 @@
-import { Instagram, Linkedin, Facebook } from 'lucide-react'
+import { Instagram, Linkedin, Facebook, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
+
+const WA_URL = 'https://wa.me/919849016794?text=Hi%20Fameboat%2C%20I%20want%20to%20discuss%20a%20growth%20system%20for%20my%20business.'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -54,8 +56,23 @@ export default function Footer() {
               ].map(([label, href]) => (
                 <li key={label}><Link href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</Link></li>
               ))}
-              <li><a href="mailto:shivacharan.s@gmail.com" className="text-muted hover:text-white text-sm transition-colors">shivacharan.s@gmail.com</a></li>
             </ul>
+
+            <div className="mt-6">
+              <p className="text-white font-semibold text-sm mb-2">Have a business challenge?</p>
+              <p className="text-muted text-xs mb-3">Let&apos;s talk on WhatsApp.</p>
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp Us"
+                className="btn-whatsapp inline-flex items-center gap-2 text-sm font-semibold"
+              >
+                <MessageCircle size={18} />
+                WhatsApp Us
+              </a>
+              <p className="text-muted text-xs mt-2">Typically responds within a few hours.</p>
+            </div>
           </div>
         </div>
 

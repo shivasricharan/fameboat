@@ -1,7 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Send, Mail, MapPin, CheckCircle } from 'lucide-react'
+import { Send, MessageCircle, MapPin, CheckCircle } from 'lucide-react'
+
+const WA_URL = 'https://wa.me/919849016794?text=Hi%20Fameboat%2C%20I%20want%20to%20discuss%20a%20growth%20system%20for%20my%20business.'
 
 const challenges = [
   'No visibility on where leads go',
@@ -78,19 +80,32 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 space-y-5 reveal">
-            {[
-              { icon: <Mail size={20} />, label: 'Email', value: 'shivacharan.s@gmail.com', sub: 'Reply within 24 hours' },
-              { icon: <MapPin size={20} />, label: 'Based in', value: 'Hyderabad, Telangana', sub: 'Serving all of India' },
-            ].map(({ icon, label, value, sub }) => (
-              <div key={label} className="glass rounded-2xl p-5 border border-white/8 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary flex-shrink-0">{icon}</div>
-                <div>
-                  <div className="text-muted text-xs mb-1">{label}</div>
-                  <div className="text-white font-semibold text-sm">{value}</div>
-                  <div className="text-muted text-xs">{sub}</div>
-                </div>
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Us"
+              className="glass rounded-2xl p-5 border border-green-500/25 bg-green-500/5 flex items-start gap-4 group transition-all hover:border-green-500/50 hover:bg-green-500/10"
+            >
+              <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400 flex-shrink-0 group-hover:scale-110 transition-transform">
+                <MessageCircle size={20} />
               </div>
-            ))}
+              <div>
+                <div className="text-white font-semibold text-sm group-hover:text-green-300 transition-colors">WhatsApp Us</div>
+                <div className="text-muted text-xs">Typically responds within a few hours</div>
+              </div>
+            </a>
+
+            <div className="glass rounded-2xl p-5 border border-white/8 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary flex-shrink-0">
+                <MapPin size={20} />
+              </div>
+              <div>
+                <div className="text-muted text-xs mb-1">Based in</div>
+                <div className="text-white font-semibold text-sm">Hyderabad, Telangana</div>
+                <div className="text-muted text-xs">Serving all of India</div>
+              </div>
+            </div>
 
             <div className="glass rounded-2xl p-6 border border-primary/20 bg-primary/5">
               <div className="font-bold text-white mb-3 text-sm">What happens next</div>
