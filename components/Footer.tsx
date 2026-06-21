@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
-              Growth systems for service businesses. Positioning, websites, lead capture, dashboards, and automation — connected.
+              Simple systems for growing businesses. Positioning, websites, lead capture, dashboards, and automation — connected.
             </p>
             <div className="flex gap-3">
               {[
@@ -78,7 +78,7 @@ export default function Footer() {
 
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-muted text-xs">&copy; {year} Fameboat. All rights reserved. Hyderabad, India.</p>
-          <p className="text-muted text-xs italic">&ldquo;Growth systems for service businesses.&rdquo;</p>
+          <p className="text-muted text-xs italic">&ldquo;Simple systems for growing businesses.&rdquo;</p>
         </div>
       </div>
     </footer>

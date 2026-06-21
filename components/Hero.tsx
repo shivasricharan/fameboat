@@ -15,17 +15,17 @@ export default function Hero() {
       <div className="max-w-5xl mx-auto px-6 w-full relative z-10 text-center">
         <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8 text-sm font-medium text-gray-300">
           <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-          Growth Systems for Service Businesses
+          Simple Systems for Growing Businesses
         </div>
 
         <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
-          Growth systems for
+          Simple systems for
           <br />
-          <span className="gradient-text">service businesses.</span>
+          <span className="gradient-text">growing businesses.</span>
         </h1>
 
         <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-          Fameboat helps service businesses connect positioning, websites, lead capture, follow-ups, dashboards, and automation into one simple growth system.
+          Fameboat helps businesses connect positioning, websites, lead capture, follow-ups, dashboards, and automation into one simple growth system.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">

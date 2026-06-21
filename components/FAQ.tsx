@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'Who is this best for?',
-    a: 'Service businesses including interiors, architects, consultants, agencies, clinics, real estate consultants, and B2B businesses.',
+    a: 'Growing businesses that need better visibility, follow-ups, dashboards, workflows, and systems.',
   },
 ]
 

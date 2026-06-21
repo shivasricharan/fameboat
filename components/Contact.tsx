@@ -22,7 +22,7 @@ const businessTypes = [
   'Clinic / Healthcare',
   'Real Estate',
   'Professional Services',
-  'Other service business',
+  'Other business',
 ]
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
