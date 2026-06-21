@@ -36,15 +36,15 @@ export default function Navbar() {
   const isHome = pathname === '/'
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-white/5 py-3' : 'py-5'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-white/5 py-2.5' : 'py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <div className={theme === 'dark' ? 'bg-white rounded-xl px-3 py-1.5' : ''}>
-            <img src="/fameboat.png" alt="Fameboat" style={{ height: '40px', width: 'auto' }} />
+          <div className={theme === 'dark' ? 'bg-white rounded-lg px-2.5 py-1' : ''}>
+            <img src="/fameboat.png" alt="Fameboat" style={{ height: '34px', width: 'auto' }} />
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden md:flex items-center gap-5">
           {links.map(({ label, href }) => (
             <a
               key={label}

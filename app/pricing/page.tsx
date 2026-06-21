@@ -57,11 +57,11 @@ export default function Pricing() {
   return (
     <>
       <Navbar />
-      <main className="pt-28">
-        <section className="py-16 mesh-bg">
+      <main className="pt-24">
+        <section className="py-12 mesh-bg">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <div className="section-badge mb-5">Pricing</div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
+            <div className="section-badge mb-4">Pricing</div>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
               Flexible pricing for
               <span className="gradient-text"> growing businesses.</span>
             </h1>
@@ -71,25 +71,25 @@ export default function Pricing() {
           </div>
         </section>
 
-        <section className="py-20 mesh-bg">
+        <section className="py-16 mesh-bg">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-5">
               {plans.map(({ name, price, prefix, color, highlight, badge, items }) => (
                 <div
                   key={name}
-                  className={`glass rounded-2xl border p-8 flex flex-col ${color} ${highlight ? 'bg-primary/5 ring-1 ring-primary/30' : ''}`}
+                  className={`glass rounded-2xl border p-6 flex flex-col ${color} ${highlight ? 'bg-primary/5 ring-1 ring-primary/30' : ''}`}
                 >
                   {badge && (
-                    <div className="inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary/15 text-violet-300 border border-primary/30 mb-4 self-start">
+                    <div className="inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary/15 text-violet-300 border border-primary/30 mb-3 self-start">
                       {badge}
                     </div>
                   )}
-                  <h3 className="font-display text-lg font-bold text-white mb-3">{name}</h3>
-                  {prefix && <div className="text-muted text-xs mb-1">{prefix}</div>}
-                  <div className="text-3xl font-bold text-white mb-6">{price}</div>
+                  <h3 className="font-display text-base font-bold text-white mb-2">{name}</h3>
+                  {prefix && <div className="text-muted text-xs mb-0.5">{prefix}</div>}
+                  <div className="text-2xl font-bold text-white mb-5">{price}</div>
 
-                  <div className="text-muted text-xs font-semibold uppercase tracking-wider mb-3">Suitable for</div>
-                  <ul className="space-y-2.5 flex-1 mb-8">
+                  <div className="text-muted text-xs font-semibold uppercase tracking-wider mb-2">Suitable for</div>
+                  <ul className="space-y-2 flex-1 mb-6">
                     {items.map((item) => (
                       <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
                         <CheckCircle size={13} className={`flex-shrink-0 ${highlight ? 'text-primary' : 'text-green-400'}`} />
@@ -107,23 +107,23 @@ export default function Pricing() {
                 </div>
               ))}
             </div>
-            <p className="text-center text-muted text-sm mt-8">
+            <p className="text-center text-muted text-sm mt-6">
               Every business is different. Solutions are tailored to your requirements.
             </p>
           </div>
         </section>
 
-        <section className="py-20 section-bg border-t border-white/5">
+        <section className="py-16 section-bg border-t border-white/5">
           <div className="max-w-3xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <div className="section-badge mb-5">FAQ</div>
+            <div className="text-center mb-8">
+              <div className="section-badge mb-4">FAQ</div>
               <h2 className="font-display text-3xl font-bold text-white">Common questions</h2>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {faqs.map(({ q, a }) => (
-                <div key={q} className="glass rounded-2xl border border-white/8 p-6">
-                  <div className="flex items-start gap-3 mb-2">
-                    <HelpCircle size={16} className="text-primary flex-shrink-0 mt-0.5" />
+                <div key={q} className="glass rounded-2xl border border-white/8 p-5">
+                  <div className="flex items-start gap-3 mb-1.5">
+                    <HelpCircle size={15} className="text-primary flex-shrink-0 mt-0.5" />
                     <div className="font-semibold text-white text-sm">{q}</div>
                   </div>
                   <p className="text-muted text-sm leading-relaxed pl-7">{a}</p>
@@ -133,10 +133,10 @@ export default function Pricing() {
           </div>
         </section>
 
-        <section className="py-16 mesh-bg">
+        <section className="py-12 mesh-bg">
           <div className="max-w-2xl mx-auto px-6 text-center">
-            <h2 className="font-display text-3xl font-bold text-white mb-4">Ready to get started?</h2>
-            <p className="text-muted mb-8">Tell us about your business. We&apos;ll recommend the right solution.</p>
+            <h2 className="font-display text-3xl font-bold text-white mb-3">Ready to get started?</h2>
+            <p className="text-muted mb-6">Tell us about your business. We&apos;ll recommend the right solution.</p>
             <a href="/#contact" className="btn-primary text-base">Let&apos;s Talk <ArrowRight size={16} /></a>
           </div>
         </section>

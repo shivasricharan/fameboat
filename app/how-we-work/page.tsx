@@ -4,7 +4,7 @@ import { Target, Crosshair, BarChart3, LineChart, Lightbulb, ArrowRight } from '
 
 const steps = [
   {
-    icon: <Target size={28} />,
+    icon: <Target size={24} />,
     step: 'Step 1',
     title: 'Position your business',
     color: 'border-primary/30 bg-primary/5',
@@ -18,7 +18,7 @@ const steps = [
     ],
   },
   {
-    icon: <Crosshair size={28} />,
+    icon: <Crosshair size={24} />,
     step: 'Step 2',
     title: 'Capture opportunities',
     color: 'border-violet-500/30 bg-violet-500/5',
@@ -32,7 +32,7 @@ const steps = [
     ],
   },
   {
-    icon: <BarChart3 size={28} />,
+    icon: <BarChart3 size={24} />,
     step: 'Step 3',
     title: 'Track leads and follow-ups',
     color: 'border-accent/30 bg-accent/5',
@@ -46,7 +46,7 @@ const steps = [
     ],
   },
   {
-    icon: <LineChart size={28} />,
+    icon: <LineChart size={24} />,
     step: 'Step 4',
     title: 'Measure what matters',
     color: 'border-blue-500/30 bg-blue-500/5',
@@ -60,7 +60,7 @@ const steps = [
     ],
   },
   {
-    icon: <Lightbulb size={28} />,
+    icon: <Lightbulb size={24} />,
     step: 'Step 5',
     title: 'Improve decisions',
     color: 'border-green-500/30 bg-green-500/5',
@@ -79,11 +79,11 @@ export default function HowWeWork() {
   return (
     <>
       <Navbar />
-      <main className="pt-28">
-        <section className="py-16 mesh-bg">
+      <main className="pt-24">
+        <section className="py-12 mesh-bg">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <div className="section-badge mb-5">How It Works</div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
+            <div className="section-badge mb-4">How It Works</div>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
               Connect the
               <span className="gradient-text"> missing pieces.</span>
             </h1>
@@ -93,22 +93,22 @@ export default function HowWeWork() {
           </div>
         </section>
 
-        <section className="py-20 mesh-bg">
-          <div className="max-w-5xl mx-auto px-6 space-y-8">
+        <section className="py-16 mesh-bg">
+          <div className="max-w-5xl mx-auto px-6 space-y-5">
             {steps.map(({ icon, step, title, color, iconColor, iconBg, items }) => (
-              <div key={step} className={`glass rounded-2xl border p-8 ${color}`}>
-                <div className="flex items-start gap-5 mb-6">
-                  <div className={`w-14 h-14 rounded-2xl ${iconBg} flex items-center justify-center ${iconColor} flex-shrink-0`}>
+              <div key={step} className={`glass rounded-2xl border p-6 ${color}`}>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`w-11 h-11 rounded-xl ${iconBg} flex items-center justify-center ${iconColor} flex-shrink-0`}>
                     {icon}
                   </div>
                   <div>
-                    <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${iconColor}`}>{step}</div>
-                    <h2 className="font-display text-2xl font-bold text-white">{title}</h2>
+                    <div className={`text-xs font-bold uppercase tracking-wider mb-0.5 ${iconColor}`}>{step}</div>
+                    <h2 className="font-display text-xl font-bold text-white">{title}</h2>
                   </div>
                 </div>
-                <ul className="grid md:grid-cols-2 gap-3">
+                <ul className="grid md:grid-cols-2 gap-2.5">
                   {items.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-gray-300">
+                    <li key={item} className="flex items-start gap-2 text-sm text-gray-300">
                       <span className={`mt-1 flex-shrink-0 ${iconColor}`}>→</span>
                       {item}
                     </li>
@@ -119,10 +119,10 @@ export default function HowWeWork() {
           </div>
         </section>
 
-        <section className="py-16 section-bg">
+        <section className="py-12 section-bg">
           <div className="max-w-2xl mx-auto px-6 text-center">
-            <h2 className="font-display text-3xl font-bold text-white mb-4">Ready to connect the pieces?</h2>
-            <p className="text-muted mb-8">Tell us about your business. We&apos;ll show you where opportunities are being lost — and how to fix it.</p>
+            <h2 className="font-display text-3xl font-bold text-white mb-3">Ready to connect the pieces?</h2>
+            <p className="text-muted mb-6">Tell us about your business. We&apos;ll show you where opportunities are being lost — and how to fix it.</p>
             <a href="/#contact" className="btn-primary text-base">Let&apos;s Talk <ArrowRight size={16} /></a>
           </div>
         </section>

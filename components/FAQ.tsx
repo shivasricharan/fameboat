@@ -38,23 +38,23 @@ export default function FAQ() {
   }, [])
 
   return (
-    <section ref={ref} id="faq" className="py-24 mesh-bg">
+    <section ref={ref} id="faq" className="py-16 mesh-bg">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-12 reveal">
-          <div className="section-badge mb-5">FAQ</div>
+        <div className="text-center mb-8 reveal">
+          <div className="section-badge mb-4">FAQ</div>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white">
             Common questions
           </h2>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map(({ q, a }, i) => (
             <div
               key={q}
-              className="glass rounded-2xl border border-white/8 p-6 reveal"
+              className="glass rounded-2xl border border-white/8 p-5 reveal"
               style={{ transitionDelay: `${i * 0.06}s` }}
             >
-              <div className="font-semibold text-white text-sm mb-2">{q}</div>
+              <div className="font-semibold text-white text-sm mb-1.5">{q}</div>
               <p className="text-muted text-sm leading-relaxed">{a}</p>
             </div>
           ))}

@@ -43,11 +43,11 @@ export default function HomePricing() {
   }, [])
 
   return (
-    <section ref={ref} id="pricing" className="py-24 section-bg">
+    <section ref={ref} id="pricing" className="py-16 section-bg">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12 reveal">
-          <div className="section-badge mb-5">Pricing</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-10 reveal">
+          <div className="section-badge mb-4">Pricing</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">
             Flexible pricing for
             <span className="gradient-text"> growing businesses.</span>
           </h2>
@@ -56,25 +56,25 @@ export default function HomePricing() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {plans.map(({ name, price, prefix, items, color, highlight }, i) => (
             <div
               key={name}
-              className={`glass rounded-2xl p-8 border card-hover reveal flex flex-col ${color} ${
+              className={`glass rounded-2xl p-6 border card-hover reveal flex flex-col ${color} ${
                 highlight ? 'bg-primary/5 ring-1 ring-primary/30' : ''
               }`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className="mb-6">
-                <h3 className="font-display text-lg font-bold text-white mb-3">{name}</h3>
-                {prefix && <div className="text-muted text-xs mb-1">{prefix}</div>}
-                <div className="text-3xl font-bold text-white">{price}</div>
+              <div className="mb-5">
+                <h3 className="font-display text-base font-bold text-white mb-2">{name}</h3>
+                {prefix && <div className="text-muted text-xs mb-0.5">{prefix}</div>}
+                <div className="text-2xl font-bold text-white">{price}</div>
               </div>
 
-              <div className="text-muted text-xs font-semibold uppercase tracking-wider mb-3">Suitable for</div>
-              <ul className="space-y-2.5 flex-1 mb-8">
+              <div className="text-muted text-xs font-semibold uppercase tracking-wider mb-2">Suitable for</div>
+              <ul className="space-y-2 flex-1 mb-6">
                 {items.map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-gray-300">
+                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
                     <span className={highlight ? 'text-primary' : 'text-muted'}>→</span>
                     {item}
                   </li>
@@ -91,7 +91,7 @@ export default function HomePricing() {
           ))}
         </div>
 
-        <p className="text-center text-muted text-sm mt-8 reveal">
+        <p className="text-center text-muted text-sm mt-6 reveal">
           Every business is different. Solutions are tailored to your requirements.
         </p>
       </div>

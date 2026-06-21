@@ -5,7 +5,7 @@ import { Target, Crosshair, BarChart3, LineChart, Lightbulb } from 'lucide-react
 
 const steps = [
   {
-    icon: <Target size={24} />,
+    icon: <Target size={22} />,
     number: '01',
     title: 'Position your business',
     desc: 'Clarify who you serve, what you offer, and why it matters.',
@@ -14,7 +14,7 @@ const steps = [
     iconBg: 'bg-primary/15',
   },
   {
-    icon: <Crosshair size={24} />,
+    icon: <Crosshair size={22} />,
     number: '02',
     title: 'Capture opportunities',
     desc: 'Build systems that capture leads from every channel.',
@@ -23,7 +23,7 @@ const steps = [
     iconBg: 'bg-violet-500/15',
   },
   {
-    icon: <BarChart3 size={24} />,
+    icon: <BarChart3 size={22} />,
     number: '03',
     title: 'Track leads and follow-ups',
     desc: 'See every lead, stage, owner, and follow-up in one place.',
@@ -32,7 +32,7 @@ const steps = [
     iconBg: 'bg-accent/15',
   },
   {
-    icon: <LineChart size={24} />,
+    icon: <LineChart size={22} />,
     number: '04',
     title: 'Measure what matters',
     desc: 'Dashboards that show conversion, pipeline, and revenue.',
@@ -41,7 +41,7 @@ const steps = [
     iconBg: 'bg-blue-500/15',
   },
   {
-    icon: <Lightbulb size={24} />,
+    icon: <Lightbulb size={22} />,
     number: '05',
     title: 'Improve decisions',
     desc: 'Use data to focus on what works and fix what doesn\'t.',
@@ -64,31 +64,31 @@ export default function Framework() {
   }, [])
 
   return (
-    <section ref={ref} id="how-it-works" className="py-24 mesh-bg">
+    <section ref={ref} id="how-it-works" className="py-16 mesh-bg">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12 reveal">
-          <div className="section-badge mb-5">How It Works</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-10 reveal">
+          <div className="section-badge mb-4">How It Works</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">
             Connect the
             <span className="gradient-text"> missing pieces.</span>
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {steps.map(({ icon, number, title, desc, color, iconColor, iconBg }, i) => (
             <div
               key={number}
-              className={`glass rounded-2xl p-6 border card-hover reveal flex flex-col ${color}`}
+              className={`glass rounded-2xl p-5 border card-hover reveal flex flex-col ${color}`}
               style={{ transitionDelay: `${i * 0.08}s` }}
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className={`w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center ${iconColor}`}>
+              <div className="flex items-center justify-between mb-3">
+                <div className={`w-9 h-9 rounded-lg ${iconBg} flex items-center justify-center ${iconColor}`}>
                   {icon}
                 </div>
-                <span className="text-3xl font-bold text-white/5">{number}</span>
+                <span className="text-2xl font-bold text-white/5">{number}</span>
               </div>
-              <h3 className="font-display text-base font-bold text-white mb-2">{title}</h3>
-              <p className="text-muted text-sm leading-relaxed flex-1">{desc}</p>
+              <h3 className="font-display text-sm font-bold text-white mb-1.5">{title}</h3>
+              <p className="text-muted text-xs leading-relaxed flex-1">{desc}</p>
             </div>
           ))}
         </div>
