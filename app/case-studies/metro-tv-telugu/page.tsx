@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, ArrowLeft, Globe, Tv, BarChart3, Users, Mail, Smartphone, Layout, Database, Download, ChevronRight } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Globe, Tv, BarChart3, Users, Mail, Smartphone, Layout, Database, ChevronRight } from 'lucide-react'
 
 const IMG = '/case-studies/metro-tv'
 
@@ -113,9 +113,7 @@ export default function MetroTvCaseStudy() {
 
               <div className="flex flex-wrap gap-3">
                 <a href="#challenge" className="btn-primary text-sm py-2.5 px-5">View Full Case Study <ArrowRight size={14} /></a>
-                <Link href="/case-studies/metro-tv-telugu/snapshot" className="btn-secondary text-sm py-2.5 px-5">
-                  <Download size={14} /> Download 1-Page Snapshot
-                </Link>
+                <a href="/#contact" className="btn-secondary text-sm py-2.5 px-5">Contact Fameboat <ArrowRight size={14} /></a>
               </div>
             </div>
           </div>
