@@ -229,3 +229,11 @@ html.light .fb-logo-wrap { background: transparent; padding: 0; }
   box-shadow: 0 8px 24px rgba(37,211,102,0.35);
 }
 html.light .btn-whatsapp { color: #ffffff !important; }
+
+/* ─── Print styles for snapshot page ───────────────────── */
+@media print {
+  body { background: #fff !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .snapshot-page { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .snapshot-page * { color-adjust: exact !important; -webkit-print-color-adjust: exact !important; }
+  @page { size: A4; margin: 12mm; }
+}

@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, ArrowLeft, Globe, Tv, BarChart3, Users, Mail, Smartphone, Layout, Database } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Globe, Tv, BarChart3, Users, Mail, Smartphone, Layout, Database, Download, ChevronRight } from 'lucide-react'
 
 const IMG = '/case-studies/metro-tv'
 
@@ -72,6 +72,55 @@ export default function MetroTvCaseStudy() {
           </div>
         </section>
 
+        {/* Case Study Snapshot */}
+        <section className="py-12 section-bg border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="reveal">
+              <div className="section-badge mb-4">Case Study Snapshot</div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+                {[
+                  { label: 'Client', value: 'Metro TV Telugu' },
+                  { label: 'Industry', value: 'Regional Media' },
+                  { label: 'System Built', value: 'Digital Presence System' },
+                  { label: 'Delivery', value: '7 Days' },
+                  { label: 'Stack', value: 'Next.js + Netlify + Google Sheets' },
+                  { label: 'Core Outcome', value: 'Live TV, advertiser enquiries, contact workflows & CMS' },
+                ].map(({ label, value }) => (
+                  <div key={label} className="glass rounded-xl border border-white/8 p-4">
+                    <div className="text-xs font-bold text-primary uppercase tracking-wider mb-1">{label}</div>
+                    <div className="text-sm font-semibold text-white">{value}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="glass rounded-2xl border border-primary/20 p-5 mb-6">
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Fameboat helped Metro TV Telugu move from scattered digital visibility to a structured online presence where viewers can watch live TV, advertisers can enquire, and the team can manage key content through Google Sheets.
+                </p>
+              </div>
+
+              <div className="glass rounded-xl border border-white/8 p-4 mb-6">
+                <div className="text-xs font-bold text-muted uppercase tracking-wider mb-3">System Flow</div>
+                <div className="flex flex-wrap items-center gap-2 text-sm">
+                  {['Viewer', 'Website', 'Live TV / Advertise / Contact', 'Google Sheet', 'Metro TV Team'].map((step, i, arr) => (
+                    <span key={step} className="flex items-center gap-2">
+                      <span className="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/25 text-violet-300 font-medium text-xs">{step}</span>
+                      {i < arr.length - 1 && <ChevronRight size={14} className="text-muted flex-shrink-0" />}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <a href="#challenge" className="btn-primary text-sm py-2.5 px-5">View Full Case Study <ArrowRight size={14} /></a>
+                <Link href="/case-studies/metro-tv-telugu/snapshot" className="btn-secondary text-sm py-2.5 px-5">
+                  <Download size={14} /> Download 1-Page Snapshot
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Metrics */}
         <section className="py-12 section-bg border-t border-white/5">
           <div className="max-w-4xl mx-auto px-6">
@@ -88,7 +137,7 @@ export default function MetroTvCaseStudy() {
         </section>
 
         {/* The Challenge */}
-        <section className="py-16 mesh-bg">
+        <section id="challenge" className="py-16 mesh-bg">
           <div className="max-w-4xl mx-auto px-6">
             <div className="reveal">
               <div className="section-badge mb-4">The Challenge</div>
