@@ -8,7 +8,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 const links = [
   { label: 'Solutions', href: '/#solutions' },
   { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'Work', href: '/#work' },
+  { label: 'Case Studies', href: '/#work' },
   { label: 'Pricing', href: '/#pricing' },
 ]
 
