@@ -7,7 +7,7 @@ const solutions = [
   {
     icon: <Target size={24} />,
     title: 'Positioning Sprint',
-    desc: 'Clarify your audience, message, offer, and market position.',
+    desc: 'Clarify what you offer, who you serve, and why customers should choose you.',
     color: 'border-primary/30 bg-primary/5',
     iconColor: 'text-primary',
     iconBg: 'bg-primary/15',
@@ -15,7 +15,7 @@ const solutions = [
   {
     icon: <Globe size={24} />,
     title: 'Growth Website',
-    desc: 'Websites that explain your business and generate opportunities.',
+    desc: 'Create a clear digital presence that explains your value and captures enquiries.',
     color: 'border-violet-400/30 bg-violet-500/5',
     iconColor: 'text-violet-400',
     iconBg: 'bg-violet-500/15',
@@ -23,7 +23,7 @@ const solutions = [
   {
     icon: <Eye size={24} />,
     title: 'Lead Visibility System',
-    desc: 'Track leads, stages, owners, follow-ups, and conversion gaps.',
+    desc: 'Know where every enquiry comes from, who is handling it, and what needs attention next.',
     color: 'border-accent/30 bg-accent/5',
     iconColor: 'text-accent',
     iconBg: 'bg-accent/15',
@@ -31,7 +31,7 @@ const solutions = [
   {
     icon: <Settings size={24} />,
     title: 'Dashboards & Automation',
-    desc: 'Simple business systems using dashboards, Google Sheets, workflows, and automation.',
+    desc: 'Turn scattered data and repeated tasks into simple workflows and useful business dashboards.',
     color: 'border-green-500/30 bg-green-500/5',
     iconColor: 'text-green-400',
     iconBg: 'bg-green-500/15',

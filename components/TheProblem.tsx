@@ -56,8 +56,8 @@ export default function TheProblem() {
             <br />
             <span className="gradient-text">quietly kill growth.</span>
           </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
-            Leads come from WhatsApp, referrals, calls, forms, ads, and teams. Most businesses simply don&apos;t know where opportunities disappear.
+          <p className="text-muted text-lg max-w-2xl mx-auto">
+            Enquiries come from WhatsApp, referrals, calls, forms, ads, events, and teams. Without a simple system, follow-ups get missed, owners lose visibility, and good opportunities slip away.
           </p>
         </div>
 

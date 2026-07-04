@@ -52,7 +52,7 @@ export default function HomePricing() {
             <span className="gradient-text"> growing businesses.</span>
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto">
-            Start small. Build together. Grow over time.
+            Not every business needs a complete system on day one. Start with what matters most and build from there.
           </p>
         </div>
 

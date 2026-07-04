@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, ArrowDown } from 'lucide-react'
+import { ArrowDown, MessageCircle } from 'lucide-react'
 
 const flowSteps = ['Positioning', 'Website', 'Leads', 'Follow-up', 'Dashboard', 'Growth']
 
@@ -25,12 +25,17 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg text-muted max-w-2xl mx-auto mb-8 leading-relaxed">
-          Fameboat helps businesses connect positioning, websites, lead capture, follow-ups, dashboards, and automation into one simple growth system.
+          From first enquiry to follow-up, Fameboat helps businesses build simple systems that improve visibility, decisions, and growth.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-          <a href="#contact" className="btn-primary text-base animate-pulse-glow">
-            Let&apos;s Talk <ArrowRight size={18} />
+          <a
+            href="https://wa.me/919849016794?text=Hi%20Fameboat%2C%20I%20want%20to%20discuss%20a%20growth%20system%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-whatsapp text-base animate-pulse-glow inline-flex items-center justify-center gap-2"
+          >
+            <MessageCircle size={18} /> WhatsApp Us
           </a>
           <a href="#how-it-works" className="btn-secondary text-base">
             See How It Works <ArrowDown size={18} />
