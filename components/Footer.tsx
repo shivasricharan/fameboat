@@ -10,12 +10,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-10">
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center mb-4">
+            <Link href="/" className="flex items-center mb-5">
               <div className="fb-logo-wrap">
                 <img src="/fameboat.png" alt="Fameboat" style={{ height: '40px', width: 'auto' }} />
               </div>
             </Link>
-            <p className="text-muted text-sm leading-relaxed max-w-xs mb-5">
+            <p className="text-muted text-sm leading-relaxed max-w-xs mb-6">
               Simple systems for growing businesses. Positioning, websites, lead capture, dashboards, and automation — connected.
             </p>
             <div className="flex gap-3">
@@ -24,8 +24,14 @@ export default function Footer() {
                 { icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/company/fameboatmedia/', label: 'LinkedIn' },
                 { icon: <Facebook size={18} />, href: 'https://www.facebook.com/fameboatmedia/', label: 'Facebook' },
               ].map(({ icon, href, label }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted hover:text-white transition-colors">
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted hover:text-white transition-colors border border-white/8 hover:border-white/20"
+                >
                   {icon}
                 </a>
               ))}
@@ -33,7 +39,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <div className="text-white font-semibold mb-4 text-sm">Solutions</div>
+            <div className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Solutions</div>
             <ul className="space-y-2.5">
               {[
                 ['Positioning Sprint', '/#solutions'],
@@ -41,26 +47,30 @@ export default function Footer() {
                 ['Lead Visibility', '/#solutions'],
                 ['Dashboards', '/#solutions'],
               ].map(([label, href]) => (
-                <li key={label}><Link href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</Link></li>
+                <li key={label}>
+                  <Link href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</Link>
+                </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <div className="text-white font-semibold mb-4 text-sm">Company</div>
-            <ul className="space-y-2.5">
+            <div className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Company</div>
+            <ul className="space-y-2.5 mb-6">
               {[
                 ['How It Works', '/#how-it-works'],
                 ['Case Studies', '/#work'],
                 ['Pricing', '/#pricing'],
                 ['Contact', '/#contact'],
               ].map(([label, href]) => (
-                <li key={label}><Link href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</Link></li>
+                <li key={label}>
+                  <Link href={href} className="text-muted hover:text-white text-sm transition-colors">{label}</Link>
+                </li>
               ))}
             </ul>
 
-            <div className="mt-6">
-              <p className="text-white font-semibold text-sm mb-2">Have a business challenge?</p>
+            <div className="glass rounded-xl p-4 border border-white/8">
+              <p className="text-white font-semibold text-sm mb-1">Have a business challenge?</p>
               <p className="text-muted text-xs mb-3">Let&apos;s talk on WhatsApp.</p>
               <a
                 href={WA_URL}
@@ -69,7 +79,7 @@ export default function Footer() {
                 aria-label="WhatsApp Us"
                 className="btn-whatsapp inline-flex items-center gap-2 text-sm font-semibold"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={16} />
                 WhatsApp Us
               </a>
               <p className="text-muted text-xs mt-2">Typically responds within a few hours.</p>

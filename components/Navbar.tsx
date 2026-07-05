@@ -39,17 +39,17 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-white/5 py-2.5' : 'py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <div className={theme === 'dark' ? 'bg-white rounded-lg px-2.5 py-1' : ''}>
+          <div className="fb-logo-wrap">
             <img src="/fameboat.png" alt="Fameboat" style={{ height: '34px', width: 'auto' }} />
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-5">
+        <nav className="hidden md:flex items-center gap-1">
           {links.map(({ label, href }) => (
             <a
               key={label}
               href={isHome ? href.replace('/', '') : href}
-              className="text-sm font-medium transition-colors text-muted hover:text-white"
+              className="text-sm font-medium text-muted hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
             >
               {label}
             </a>
@@ -57,7 +57,11 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <button onClick={toggleTheme} aria-label="Toggle theme" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted hover:text-white transition-colors border border-white/8">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted hover:text-white transition-colors border border-white/8"
+          >
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <a href={isHome ? '#contact' : '/#contact'} className="btn-primary text-sm py-2.5 px-5 animate-pulse-glow">
@@ -66,7 +70,11 @@ export default function Navbar() {
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          <button onClick={toggleTheme} aria-label="Toggle theme" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted border border-white/8">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 glass rounded-lg flex items-center justify-center text-muted border border-white/8"
+          >
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <button className="text-white p-2" onClick={() => setOpen(!open)}>
@@ -76,15 +84,22 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden glass border-t border-white/5 px-6 py-5 space-y-4">
+        <div className="md:hidden glass border-t border-white/5 px-6 py-5 space-y-1">
           {links.map(({ label, href }) => (
-            <a key={label} href={isHome ? href.replace('/', '') : href} onClick={() => setOpen(false)} className="block text-base text-white font-medium py-2">
+            <a
+              key={label}
+              href={isHome ? href.replace('/', '') : href}
+              onClick={() => setOpen(false)}
+              className="block text-base text-white font-medium py-2.5 px-2 rounded-lg hover:bg-white/5 transition-colors"
+            >
               {label}
             </a>
           ))}
-          <a href={isHome ? '#contact' : '/#contact'} onClick={() => setOpen(false)} className="btn-primary w-full justify-center mt-2">
-            Let&apos;s Talk
-          </a>
+          <div className="pt-3">
+            <a href={isHome ? '#contact' : '/#contact'} onClick={() => setOpen(false)} className="btn-primary w-full justify-center">
+              Let&apos;s Talk
+            </a>
+          </div>
         </div>
       )}
     </header>

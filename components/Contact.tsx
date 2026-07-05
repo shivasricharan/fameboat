@@ -79,40 +79,45 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8">
+          {/* Info panel */}
           <div className="lg:col-span-2 space-y-4 reveal">
             <a
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp Us"
-              className="glass rounded-2xl p-4 border border-green-500/25 bg-green-500/5 flex items-start gap-3 group transition-all hover:border-green-500/50 hover:bg-green-500/10"
+              className="glass rounded-2xl p-5 border border-green-500/25 bg-green-500/5 flex items-center gap-4 group transition-all hover:border-green-500/45 hover:bg-green-500/10 block"
             >
-              <div className="w-9 h-9 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 flex-shrink-0 group-hover:scale-110 transition-transform">
-                <MessageCircle size={18} />
+              <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <MessageCircle size={20} />
               </div>
-              <div>
+              <div className="flex-1 min-w-0">
                 <div className="text-white font-semibold text-sm group-hover:text-green-300 transition-colors">WhatsApp Us</div>
-                <div className="text-muted text-xs">Typically responds within a few hours</div>
+                <div className="text-muted text-xs mt-0.5">Typically responds within a few hours</div>
               </div>
             </a>
 
-            <div className="glass rounded-2xl p-4 border border-white/8 flex items-start gap-3">
-              <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center text-primary flex-shrink-0">
-                <MapPin size={18} />
+            <div className="glass rounded-2xl p-5 border border-white/8 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary flex-shrink-0">
+                <MapPin size={20} />
               </div>
               <div>
-                <div className="text-muted text-xs mb-0.5">Based in</div>
                 <div className="text-white font-semibold text-sm">Hyderabad, Telangana</div>
-                <div className="text-muted text-xs">Serving all of India</div>
+                <div className="text-muted text-xs mt-0.5">Serving all of India</div>
               </div>
             </div>
 
             <div className="glass rounded-2xl p-5 border border-primary/20 bg-primary/5">
-              <div className="font-bold text-white mb-2 text-sm">What happens next</div>
-              <ul className="space-y-1.5">
-                {['We review your requirements', 'Quick call to understand your business', 'You get a clear recommendation', 'No obligation to proceed'].map((p) => (
-                  <li key={p} className="flex items-center gap-2 text-sm text-gray-300">
-                    <CheckCircle size={12} className="text-green-400 flex-shrink-0" />
+              <div className="font-bold text-white mb-3 text-sm">What happens next</div>
+              <ul className="space-y-2">
+                {[
+                  'We review your requirements',
+                  'Quick call to understand your business',
+                  'You get a clear recommendation',
+                  'No obligation to proceed',
+                ].map((p) => (
+                  <li key={p} className="flex items-start gap-2.5 text-sm text-gray-300">
+                    <CheckCircle size={13} className="text-green-400 flex-shrink-0 mt-0.5" />
                     {p}
                   </li>
                 ))}
@@ -120,6 +125,7 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* Form panel */}
           <div className="lg:col-span-3 reveal">
             {status === 'success' ? (
               <div className="glass rounded-2xl p-10 border border-green-500/25 text-center flex flex-col items-center justify-center min-h-72">
