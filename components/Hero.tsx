@@ -2,7 +2,14 @@
 
 import { ArrowDown, MessageCircle } from 'lucide-react'
 
-const flowSteps = ['Positioning', 'Website', 'Leads', 'Follow-up', 'Dashboard', 'Growth']
+const flowSteps = [
+  { num: '01', label: 'Discover' },
+  { num: '02', label: 'Capture' },
+  { num: '03', label: 'Organize' },
+  { num: '04', label: 'Automate' },
+  { num: '05', label: 'Measure' },
+  { num: '06', label: 'Grow' },
+]
 
 export default function Hero() {
   return (
@@ -58,18 +65,32 @@ export default function Hero() {
           className="max-w-3xl mx-auto animate-fade-in"
           style={{ animationDelay: '0.4s' }}
         >
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-0">
-            {flowSteps.map((step, i) => (
-              <div key={step} className="flex items-center">
-                <div className="glass rounded-lg px-3.5 py-2 border border-white/10 text-xs font-semibold text-white/80 hover:border-primary/40 hover:text-white transition-all">
-                  {step}
-                </div>
-                {i < flowSteps.length - 1 && (
-                  <span className="text-primary/50 mx-1.5 hidden md:block text-xs">→</span>
-                )}
+          {/* Desktop: 6 columns in one row */}
+          <div className="hidden md:grid grid-cols-6 gap-3">
+            {flowSteps.map(({ num, label }) => (
+              <div
+                key={num}
+                className="glass rounded-xl p-3 border border-white/10 text-center hover:border-primary/40 hover:bg-primary/5 transition-all group"
+              >
+                <div className="text-[10px] font-bold text-muted mb-1 group-hover:text-primary transition-colors">{num}</div>
+                <div className="text-sm font-semibold text-white">{label}</div>
               </div>
             ))}
           </div>
+
+          {/* Mobile: 2 columns */}
+          <div className="grid grid-cols-2 gap-3 md:hidden">
+            {flowSteps.map(({ num, label }) => (
+              <div
+                key={num}
+                className="glass rounded-xl px-4 py-3 border border-white/10 flex items-center gap-3"
+              >
+                <span className="text-xs font-bold text-muted flex-shrink-0">{num}</span>
+                <span className="text-sm font-semibold text-white">{label}</span>
+              </div>
+            ))}
+          </div>
+
           <p className="text-muted text-xs mt-3 uppercase tracking-wider font-medium">End-to-end growth system</p>
         </div>
       </div>
