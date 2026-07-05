@@ -89,7 +89,7 @@ export default function Footer() {
 
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-muted text-xs">&copy; {year} Fameboat. All rights reserved. Hyderabad, India.</p>
-          <p className="text-muted text-xs italic">&ldquo;Find missed revenue opportunities before they disappear.&rdquo;</p>
+          <p className="text-muted text-xs">Helping businesses build simple systems for visibility, decisions, and growth.</p>
         </div>
       </div>
     </footer>
