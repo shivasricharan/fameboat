@@ -7,12 +7,12 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400','600','700','800'],
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400','700'], variable: '--font-playfair' })
 
 export const metadata: Metadata = {
-  title: 'Fameboat | Simple Systems for Growing Businesses',
-  description: 'Fameboat helps businesses improve positioning, visibility, lead management, dashboards, and systems.',
-  keywords: 'growth systems, positioning, lead management, dashboards, automation, websites, hyderabad',
+  title: 'Fameboat | Business Systems for Clearer Growth',
+  description: 'Fameboat builds connected business systems across positioning, lead capture, workflows, data, automation and leadership dashboards.',
+  keywords: 'business system builder, lead management, business dashboards, workflow automation, growth systems, Hyderabad',
   openGraph: {
-    title: 'Fameboat | Simple Systems for Growing Businesses',
-    description: 'Fameboat helps businesses improve positioning, visibility, lead management, dashboards, and systems.',
+    title: 'Fameboat | Build the Business System Behind Your Growth',
+    description: 'Connect positioning, lead capture, workflows, data and dashboards into one practical operating system.',
     url: 'https://fameboat.com',
     siteName: 'Fameboat',
     locale: 'en_IN',
@@ -23,9 +23,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${playfair.variable} scroll-smooth`}>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('fb-theme');if(t==='light')document.documentElement.classList.add('light');})();` }} />
-      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
