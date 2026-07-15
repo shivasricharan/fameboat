@@ -1,0 +1,2 @@
+import type { MetadataRoute } from 'next'
+export default function sitemap():MetadataRoute.Sitemap{const routes=['','/digital-credibility-sprint','/work','/work/metro-tv-telugu','/work/iia-telangana','/about','/contact','/privacy','/terms'];return routes.map(route=>({url:`https://fameboat.com${route}`,lastModified:new Date(),changeFrequency:route===''?'weekly':'monthly',priority:route===''?1:route==='/digital-credibility-sprint'?0.9:0.7}))}
