@@ -1,29 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins, Playfair_Display } from 'next/font/google'
+import { Inter, Manrope } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const poppins = Poppins({ subsets: ['latin'], weight: ['400','600','700','800'], variable: '--font-poppins' })
-const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400','700'], variable: '--font-playfair' })
+const inter=Inter({subsets:['latin'],variable:'--font-body',display:'swap'})
+const manrope=Manrope({subsets:['latin'],variable:'--font-display',display:'swap'})
 
-export const metadata: Metadata = {
-  title: 'Fameboat | Business Systems for Clearer Growth',
-  description: 'Fameboat builds connected business systems across positioning, lead capture, workflows, data, automation and leadership dashboards.',
-  keywords: 'business system builder, lead management, business dashboards, workflow automation, growth systems, Hyderabad',
-  openGraph: {
-    title: 'Fameboat | Build the Business System Behind Your Growth',
-    description: 'Connect positioning, lead capture, workflows, data and dashboards into one practical operating system.',
-    url: 'https://fameboat.com',
-    siteName: 'Fameboat',
-    locale: 'en_IN',
-    type: 'website',
-  },
+export const metadata:Metadata={
+ metadataBase:new URL('https://fameboat.com'),
+ title:{default:'Fameboat | Digital Credibility for Established Businesses',template:'%s | Fameboat'},
+ description:'Fameboat helps established founder-led businesses clarify their story, modernise their website, improve customer journeys, and capture better enquiries through one premium digital experience.',
+ keywords:['digital credibility','premium business website','customer experience studio','website strategy','founder-led businesses','Hyderabad'],
+ alternates:{canonical:'/'},
+ openGraph:{title:'Make your digital presence match the business you have built.',description:'Digital credibility and customer experience studio for established founder-led businesses.',url:'https://fameboat.com',siteName:'Fameboat',locale:'en_IN',type:'website'},
+ twitter:{card:'summary_large_image',title:'Fameboat — Digital Credibility Studio',description:'Make your digital presence match the business you have built.'},
+ robots:{index:true,follow:true},
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="font-sans antialiased">{children}</body>
-    </html>
-  )
-}
+const schema={'@context':'https://schema.org','@type':'ProfessionalService',name:'Fameboat',url:'https://fameboat.com',areaServed:'India',address:{'@type':'PostalAddress',addressLocality:'Hyderabad',addressCountry:'IN'},description:'Digital credibility and customer experience studio for established founder-led businesses.'}
+
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en" className={`${inter.variable} ${manrope.variable}`}><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/></body></html>}
