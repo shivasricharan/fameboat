@@ -1,27 +1,6 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import type { Metadata } from 'next'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-
-export default function About() {
-  return (
-    <>
-      <Navbar />
-      <main className="pt-24">
-        <section className="py-12 mesh-bg">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <div className="section-badge mb-4">About</div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-              Simple systems for
-              <span className="gradient-text"> growing businesses.</span>
-            </h1>
-            <p className="text-muted text-lg leading-relaxed mb-6">
-              Fameboat helps businesses connect positioning, websites, lead capture, follow-ups, and dashboards into one simple growth system.
-            </p>
-            <a href="/#contact" className="btn-primary text-base">Let&apos;s Talk <ArrowRight size={16} /></a>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  )
-}
+import { StandardPage } from '@/components/CredibilitySite'
+export const metadata:Metadata={title:'About',description:'Fameboat is a digital credibility and customer experience studio led from Hyderabad, India.',alternates:{canonical:'/about'}}
+export default function Page(){return <StandardPage eyebrow="About Fameboat" title="Business understanding before digital implementation." intro="Fameboat helps established founder-led organisations represent their real strength through clear positioning, premium web experiences, thoughtful customer journeys, and practical digital infrastructure."><section className="content-section"><div className="shell content-grid"><aside><div className="founder-mark">19<span>+</span></div></aside><article className="prose"><h2>Built from experience across the complete customer journey.</h2><p>Fameboat is led by a professional with more than 19 years of experience across marketing, branding, media, digital touchpoints, customer journeys, technology, and business implementation.</p><p>That background shapes a different approach to digital work. The starting point is not a theme, template, framework, or technology preference. It is the business: how it has evolved, what customers need to understand, where trust is created, and what the internal team can practically operate.</p><h2>What Fameboat believes</h2><p>A strong website should accurately represent the organisation, make complex information easier to understand, create confidence, guide customers towards the right next step, and remain practical for the team after launch.</p><p>Fameboat is based in Hyderabad, India, and works with established, relationship-driven organisations entering a more serious digital phase.</p><Link className="button button-primary" href="/#review">Review My Digital Presence <ArrowRight size={17}/></Link></article></div></section></StandardPage>}
