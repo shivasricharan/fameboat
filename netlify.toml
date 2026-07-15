@@ -8,9 +8,40 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[[redirects]]
+  from = "/services"
+  to = "/digital-credibility-sprint"
+  status = 301
+
+[[redirects]]
+  from = "/pricing"
+  to = "/digital-credibility-sprint"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies"
+  to = "/work"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies/metro-tv-telugu"
+  to = "/work/metro-tv-telugu"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies/iia-telangana"
+  to = "/work/iia-telangana"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
