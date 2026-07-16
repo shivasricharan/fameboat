@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
 import './globals.css'
 import './fameboat.css'
+import './home-updates.css'
 import './proof-lab/proof-lab.css'
 
 const inter=Inter({subsets:['latin'],variable:'--font-body',display:'swap'})
