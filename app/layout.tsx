@@ -4,6 +4,7 @@ import './globals.css'
 import './fameboat.css'
 import './home-updates.css'
 import './proof-lab/proof-lab.css'
+import './proof-lab/zero-mode.css'
 
 const inter=Inter({subsets:['latin'],variable:'--font-body',display:'swap'})
 const manrope=Manrope({subsets:['latin'],variable:'--font-display',display:'swap'})
