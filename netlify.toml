@@ -8,14 +8,35 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Consolidate retired Fameboat 1.0 acquisition pages into the current audit journey.
 [[redirects]]
   from = "/services"
-  to = "/digital-credibility-sprint"
+  to = "/#audit"
   status = 301
 
 [[redirects]]
   from = "/pricing"
-  to = "/digital-credibility-sprint"
+  to = "/#audit"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/#audit"
+  status = 301
+
+[[redirects]]
+  from = "/how-we-work"
+  to = "/#how"
+  status = 301
+
+[[redirects]]
+  from = "/digital-credibility-sprint"
+  to = "/#audit"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/#top"
   status = 301
 
 [[redirects]]
