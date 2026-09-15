@@ -19,14 +19,15 @@ export default function Home() {
     e.preventDefault()
     if (status === "sending") return
     setStatus("sending"); setMessage("")
-    const form = new FormData(e.currentTarget)
+    const formElement = e.currentTarget
+    const form = new FormData(formElement)
     const payload = Object.fromEntries(form.entries())
     try {
       const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...payload, service: "14-Day Marketing Proof Audit" }) })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error)
       setStatus("success"); setMessage("Thanks — your paid audit request is in. We’ll be in touch shortly.")
-      e.currentTarget.reset()
+      formElement.reset()
     } catch (err) {
       setStatus("error"); setMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.")
     }
