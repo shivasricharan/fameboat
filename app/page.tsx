@@ -1,34 +1,97 @@
-'use client'
+"use client"
 
-import { FormEvent, useState } from 'react'
-import { ArrowRight, BarChart3, Check, ChevronRight, Eye, Gauge, Menu, MousePointerClick, ShieldCheck, Sparkles, Target, TrendingUp, X } from 'lucide-react'
+import Link from "next/link"
+import { FormEvent, useState } from "react"
+import "./fameboat2.css"
 
-const channels=['Meta','Google','Creators','WhatsApp','Events','Offline']
-const gaps=[
- {icon:<Eye/>,title:'Spend is visible',text:'Customer outcomes are not.'},
- {icon:<BarChart3/>,title:'Reports disagree',text:'Every platform claims success.'},
- {icon:<Target/>,title:'Proof arrives late',text:'Source data disappears after the sale.'}
+const flow = [
+  ["Marketing", "The activity you pay for or spend time on."],
+  ["Customer response", "The calls, messages, enquiries and visits that follow."],
+  ["Business outcome", "The sales, revenue and returning customers you can see."],
+  ["Decision", "What to scale, stop, fix or test next."]
 ]
 
-export default function Page(){
- const[open,setOpen]=useState(false)
- const[status,setStatus]=useState<'idle'|'loading'|'success'|'error'>('idle')
- const[form,setForm]=useState({name:'',business:'',website:'',email:'',phone:'',campaign:'',company:''})
- const update=(key:string,value:string)=>setForm({...form,[key]:value})
- const submit=async(e:FormEvent)=>{e.preventDefault();if(form.company)return;setStatus('loading');try{const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...form,service:'14-Day Marketing Proof Audit — ₹9,999',message:`Growth challenge: ${form.campaign}`})});if(!res.ok)throw new Error();setStatus('success')}catch{setStatus('error')}}
- return <div className="fb-site">
-  <header className="fb-header"><div className="fb-shell fb-nav"><a className="fb-brand" href="#top"><span>F</span>Fameboat</a><nav className="fb-desktop"><a href="#problem">Why</a><a href="#how">How</a><a href="#proof">What you get</a></nav><a className="fb-btn fb-btn-dark fb-desktop" href="/proof-lab">Open Proof Lab</a><button className="fb-menu" onClick={()=>setOpen(!open)} aria-label="Toggle navigation">{open?<X/>:<Menu/>}</button></div>{open&&<div className="fb-mobile"><a href="#problem" onClick={()=>setOpen(false)}>Why</a><a href="#how" onClick={()=>setOpen(false)}>How</a><a href="#proof" onClick={()=>setOpen(false)}>What you get</a><a className="fb-btn fb-btn-dark" href="/proof-lab">Open Proof Lab</a></div>}</header>
-  <main id="top">
-   <section className="fb-hero"><div className="fb-shell fb-hero-grid"><div><h1>Know what marketing actually creates business.</h1><p className="fb-lead">Connect campaigns, customer paths and real outcomes to understand what is working, what is uncertain and where to invest next.</p><div className="fb-actions"><a className="fb-btn fb-btn-primary" href="#review">Start 14-Day Audit <ArrowRight size={18}/></a><a className="fb-text-link" href="/proof-lab">Try the Proof Lab <ChevronRight size={17}/></a></div><p className="fb-trustline"><ShieldCheck size={16}/> 14-Day Marketing Proof Audit · ₹9,999 · Start with zero data, a sample, or aggregate totals.</p></div><ProofCockpit/></div></section>
-   <section className="fb-signal"><div className="fb-shell"><p>From activity to evidence</p><div>{channels.map(x=><span key={x}>{x}</span>)}</div><ArrowRight/></div></section>
-   <section id="problem" className="fb-section fb-problem"><div className="fb-shell"><div className="fb-section-head compact"><h2>Marketing shows activity.<br/>Fameboat shows proof.</h2><p>Three gaps block confident decisions.</p></div><div className="fb-gap-cards">{gaps.map((g,i)=><article key={g.title}><span>0{i+1}</span>{g.icon}<h3>{g.title}</h3><p>{g.text}</p></article>)}</div></div></section>
-   <section id="how" className="fb-section fb-dark"><div className="fb-shell"><div className="fb-section-head compact fb-light"><h2>One journey. Four moves.</h2><p>Review → design → measure → decide.</p></div><div className="fb-steps"><Step n="01" icon={<Eye/>} title="Review" text="See the real customer path."/><Step n="02" icon={<MousePointerClick/>} title="Design" text="Define one measurable action."/><Step n="03" icon={<Gauge/>} title="Measure" text="Connect activity to outcomes."/><Step n="04" icon={<TrendingUp/>} title="Decide" text="Scale, stop or test next."/></div></div></section>
-   <section id="proof" className="fb-section"><div className="fb-shell fb-proof-grid"><div><h2>What your ₹9,999 audit will deliver.</h2><div className="fb-checks">{['Marketing activity and channel review','Customer path from discovery to outcome','One agreed business success metric','Campaign-to-outcome tracking gaps','Channel and evidence comparison','Clear scale, stop, fix or test recommendation','14-day findings and next-step report'].map(x=><p key={x}><Check size={17}/>{x}</p>)}</div><a className="fb-btn fb-btn-primary" href="#review">Start my 14-day audit <ArrowRight size={18}/></a></div><div className="fb-proof-card"><div className="fb-proof-top"><span>Campaign Proof</span><em>Owner view</em></div><div className="fb-proof-score"><small>Evidence confidence</small><strong>78%</strong><i><b/></i></div><div className="fb-proof-row"><span>Strongest signal</span><strong>Google local</strong></div><div className="fb-proof-row"><span>Leak</span><strong>Visits not captured</strong></div><div className="fb-decision"><Sparkles size={19}/><div><small>Next decision</small><strong>Fix visit tracking before increasing ad spend.</strong></div></div></div></div></section>
-   <section className="fb-section fb-soft"><div className="fb-shell fb-access-wrap"><div><h2>Start light.<br/>Go deeper only when useful.</h2><p>No forced connectors. No customer-level data on day one.</p></div><div className="fb-access"><article><span>01</span><h3>Start from zero</h3><p>Idea → first measurable path</p></article><article><span>02</span><h3>Add totals</h3><p>Spend → enquiries → sales</p></article><article><span>03</span><h3>Connect proof</h3><p>Read-only data when trusted</p></article></div></div></section>
-   <section id="review" className="fb-section fb-review"><div className="fb-shell fb-review-grid"><div><span>14-Day Marketing Proof Audit</span><h2>Make the next growth move measurable.</h2><p><strong>₹9,999</strong> for a focused two-week audit of your marketing activity, customer path, proof gaps and next growth decision.</p></div>{status==='success'?<div className="fb-success"><Check/><h3>Received.</h3><p>Fameboat will respond with the most practical next step.</p></div>:<form onSubmit={submit} className="fb-form"><input className="fb-honeypot" value={form.company} onChange={e=>update('company',e.target.value)} tabIndex={-1} autoComplete="off"/><label>Name<input required value={form.name} onChange={e=>update('name',e.target.value)}/></label><label>Business<input required value={form.business} onChange={e=>update('business',e.target.value)}/></label><label>Email<input required type="email" value={form.email} onChange={e=>update('email',e.target.value)}/></label><label>Phone / WhatsApp<input required value={form.phone} onChange={e=>update('phone',e.target.value)}/></label><label className="fb-full">One growth challenge<textarea rows={3} required value={form.campaign} onChange={e=>update('campaign',e.target.value)} placeholder="We want to know which campaign brings store visits…"/></label>{status==='error'&&<p className="fb-error">Please try again.</p>}<button className="fb-btn fb-btn-dark fb-full" disabled={status==='loading'}>{status==='loading'?'Submitting…':'Request 14-Day Audit — ₹9,999'} <ArrowRight size={18}/></button></form>}</div></section>
+export default function Home() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [message, setMessage] = useState("")
+
+  async function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (status === "sending") return
+    setStatus("sending"); setMessage("")
+    const form = new FormData(e.currentTarget)
+    const payload = Object.fromEntries(form.entries())
+    try {
+      const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...payload, service: "14-Day Marketing Proof Audit" }) })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error)
+      setStatus("success"); setMessage("Thanks — your paid audit request is in. We’ll be in touch shortly.")
+      e.currentTarget.reset()
+    } catch (err) {
+      setStatus("error"); setMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+    }
+  }
+
+  return <main className="fb2" id="top">
+    <header className="fb2-header">
+      <a className="fb2-brand" href="#top">Fameboat</a>
+      <nav><a href="#how">How it works</a><Link href="/proof-lab">Proof Lab</Link><a href="#audit">14-Day Audit</a></nav>
+      <a className="fb2-header-cta" href="#audit">Start audit</a>
+    </header>
+
+    <section className="fb2-hero">
+      <div className="fb2-wrap fb2-hero-grid">
+        <div>
+          <p className="fb2-kicker">FAMEBOAT</p>
+          <h1>Marketing shows activity.<br />Fameboat shows proof.</h1>
+          <p className="fb2-lede">Understand what’s actually working, what’s unclear and what to do next — before spending more on marketing.</p>
+          <div className="fb2-actions"><a className="fb2-button" href="#audit">Start 14-Day Audit — ₹5,000</a><Link className="fb2-text-link" href="/proof-lab">See Fameboat in action <span>→</span></Link></div>
+          <p className="fb2-note">Focused 14-day engagement. Real business data. Clear next decisions.</p>
+        </div>
+        <aside className="fb2-hero-panel">
+          <p>ONE BETTER QUESTION</p>
+          <strong>What is actually creating business?</strong>
+          <span>Fameboat helps you follow the evidence, without pretending it is perfect.</span>
+        </aside>
+      </div>
+    </section>
+
+    <section className="fb2-problem" id="problem">
+      <div className="fb2-wrap fb2-split">
+        <div><p className="fb2-kicker">THE PROBLEM</p><h2>Lots of activity.<br />Not enough clarity.</h2></div>
+        <div><p>Clicks. Leads. Followers. Calls. Messages. Website traffic. Campaign reports.</p><p className="fb2-body">They all show activity. But they do not answer the owner’s questions: Which of these created business? Where are opportunities being lost? What should be fixed before more money is spent?</p></div>
+      </div>
+    </section>
+
+    <section className="fb2-flow" id="how">
+      <div className="fb2-wrap"><p className="fb2-kicker">HOW FAMEBOAT WORKS</p><h2>From activity to a decision.</h2>
+        <div className="fb2-flow-grid">{flow.map(([title, copy], i) => <article key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+        <p className="fb2-body fb2-flow-end">We look at the available evidence across the whole journey — what appears to be contributing, what cannot yet be proven, where value may be missed, and the next move worth investigating.</p>
+      </div>
+    </section>
+
+    <section className="fb2-lab">
+      <div className="fb2-wrap fb2-lab-inner"><div><p className="fb2-kicker">PROOF LAB</p><h2>See Fameboat in action.</h2><p className="fb2-body">Answer a few simple questions. See what Fameboat notices. It takes about a minute and never asks for customer-level data.</p><Link className="fb2-text-link" href="/proof-lab">Open Proof Lab <span>→</span></Link></div><div className="fb2-lab-quote"><span>Working</span><span>Unclear</span><span>Opportunity</span><strong>Next move</strong></div></div>
+    </section>
+
+    <section className="fb2-audit" id="audit">
+      <div className="fb2-wrap"><div className="fb2-audit-head"><div><p className="fb2-kicker">THE 14-DAY AUDIT</p><h2>14 days to understand what deserves your attention.</h2></div><strong>₹5,000</strong></div>
+        <div className="fb2-timeline">{[["Day 1–2","Understand the business question."],["Day 3–5","Review available marketing, customer and business evidence."],["Day 6–9","Identify gaps, patterns and assumptions."],["Day 10–12","Investigate the strongest opportunities."],["Day 13–14","Deliver findings and recommended next moves."]].map(([day, copy])=><article key={day}><b>{day}</b><p>{copy}</p></article>)}</div>
+        <p className="fb2-fine">A focused engagement, not 14 days of full-time consulting.</p>
+      </div>
+    </section>
+
+    <section className="fb2-deliverables"><div className="fb2-wrap fb2-split"><div><p className="fb2-kicker">WHAT YOU GET</p><h2>Useful evidence.<br />A clearer next move.</h2></div><ul><li>Business question definition</li><li>Marketing and channel review</li><li>Customer journey view</li><li>Evidence and tracking gaps</li><li>Opportunities worth investigating</li><li>Scale / Stop / Fix / Test recommendations</li><li>Final decision summary</li></ul></div></section>
+
+    <section className="fb2-fit"><div className="fb2-wrap"><p className="fb2-kicker">THIS MAY BE USEFUL IF…</p><div className="fb2-fit-grid">{["You’re spending on marketing but aren’t sure what’s working.","Leads are coming in but business is not growing proportionately.","Different channels report different versions of success.","You suspect opportunities are getting lost between enquiry and sale.","You have business data but aren’t sure what it is telling you."].map(x=><p key={x}>{x}</p>)}</div><p className="fb2-fine">You don’t need perfect data to start.</p></div></section>
+
+    <section className="fb2-no-magic"><div className="fb2-wrap fb2-split"><div><p className="fb2-kicker">A TRUST NOTE</p><h2>No magic attribution.</h2></div><p className="fb2-body">We won’t pretend every sale can be traced perfectly to a click, campaign or channel. We’ll work with the evidence available, show what’s known, identify what’s unclear and help determine what to investigate next.</p></div></section>
+
+    <section className="fb2-founder"><div className="fb2-wrap fb2-split"><div><p className="fb2-kicker">FOUNDER</p><h2>Built from nearly two decades of asking the same question in different forms.</h2></div><div><p className="fb2-body">Shiva has worked across marketing, branding, media, digital and business/customer touchpoints for 19+ years. Fameboat comes from a continuing interest in connecting fragmented signals to better everyday decisions.</p><p className="fb2-sign">Shiva<br />Founder, Fameboat</p></div></div></section>
+
+    <section className="fb2-form-section"><div className="fb2-wrap fb2-form-grid"><div><p className="fb2-kicker">START YOUR AUDIT</p><h2>Before you spend more, understand what’s already happening.</h2><p className="fb2-price">14-Day Marketing Proof Audit<br /><strong>₹5,000</strong></p><p className="fb2-body">Tell us what you’re trying to understand. We’ll take it from there.</p></div>
+      <form onSubmit={submit}><input className="fb2-honeypot" name="company" tabIndex={-1} autoComplete="off" /><label>Name*<input name="name" required /></label><label>Business / Company*<input name="business" required /></label><label>Email*<input name="email" type="email" required /></label><label>Phone / WhatsApp*<input name="phone" required /></label><label>Website <em>(optional)</em><input name="website" placeholder="https://" /></label><label className="fb2-wide">What are you trying to understand?<textarea name="message" required /></label><button className="fb2-button" disabled={status === "sending"}>{status === "sending" ? "Sending…" : "Request 14-Day Audit — ₹5,000"}</button>{message && <p className={status === "success" ? "fb2-success" : "fb2-error"}>{message}</p>}</form>
+    </div></section>
+    <footer className="fb2-footer"><div className="fb2-wrap"><span>Fameboat</span><span>© 2026</span><Link href="/privacy">Privacy</Link></div></footer>
   </main>
-  <footer className="fb-footer"><div className="fb-shell fb-footer-line"><a className="fb-brand fb-brand-light" href="#top"><span>F</span>Fameboat</a><p>Know what creates business.</p><a href="/privacy">Privacy</a></div></footer>
- </div>
 }
-function Step({n,icon,title,text}:{n:string,icon:React.ReactNode,title:string,text:string}){return <article><div><span>{n}</span>{icon}</div><h3>{title}</h3><p>{text}</p></article>}
-function ProofCockpit(){return <div className="fb-cockpit"><div className="fb-cockpit-head"><span>Live proof view</span><em>Illustrative</em></div><div className="fb-cockpit-kpi"><div><small>Spend reviewed</small><strong>₹1.2L</strong></div><div><small>Linked revenue</small><strong>₹6.8L</strong></div></div><div className="fb-cockpit-chart"><div className="fb-chart-line"><i/><i/><i/><i/><i/></div><div className="fb-chart-labels"><span>Meta</span><span>Google</span><span>Referral</span><span>Events</span></div></div><div className="fb-cockpit-decision"><Target/><div><small>Owner decision</small><strong>Shift 20% budget to Google local</strong></div></div></div>}
