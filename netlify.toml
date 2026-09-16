@@ -40,18 +40,28 @@
   status = 301
 
 [[redirects]]
+  from = "/work/*"
+  to = "/#top"
+  status = 301
+
+[[redirects]]
+  from = "/work"
+  to = "/#top"
+  status = 301
+
+[[redirects]]
   from = "/case-studies"
-  to = "/work"
+  to = "/#top"
   status = 301
 
 [[redirects]]
   from = "/case-studies/metro-tv-telugu"
-  to = "/work/metro-tv-telugu"
+  to = "/#top"
   status = 301
 
 [[redirects]]
   from = "/case-studies/iia-telangana"
-  to = "/work/iia-telangana"
+  to = "/#top"
   status = 301
 
 [[headers]]
