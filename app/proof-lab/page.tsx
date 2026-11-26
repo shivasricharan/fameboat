@@ -1,17 +1,101 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { useMemo, useState } from "react"
-import { ArrowLeft, ArrowRight, BarChart3, CircleHelp, Lightbulb, MapPin, RotateCcw, Search, ShieldCheck, Target, TrendingUp } from "lucide-react"
-import "./prooflab2.css"
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 
-const prompts=[["What’s bringing customers?",Search],["What’s actually converting?",TrendingUp],["Where am I losing opportunities?",MapPin],["What’s worth spending more on?",BarChart3],["Why aren’t customers coming back?",RotateCcw],["I want to understand my business better",CircleHelp]]
-const channels=["Google","Instagram","Facebook","WhatsApp","Referrals","Walk-ins","Website","Ads","Events","Partners","Other"]
-export default function ProofLab(){
- const [step,setStep]=useState(1),[focus,setFocus]=useState(""),[selected,setSelected]=useState<string[]>([]),[spend,setSpend]=useState(""),[enquiries,setEnquiries]=useState(""),[sales,setSales]=useState(""),[revenue,setRevenue]=useState("")
- const n={spend:Number(spend)||0,enquiries:Number(enquiries)||0,sales:Number(sales)||0,revenue:Number(revenue)||0}
- const calc=useMemo(()=>({conversion:n.enquiries&&n.sales?Math.round(n.sales/n.enquiries*100):null,missing:n.enquiries&&n.sales?n.enquiries-n.sales:null,perSale:n.sales&&n.revenue?Math.round(n.revenue/n.sales):null,relative:n.spend&&n.revenue?+(n.revenue/n.spend).toFixed(1):null}),[spend,enquiries,sales,revenue])
- const reset=()=>{setStep(1);setFocus("");setSelected([]);setSpend("");setEnquiries("");setSales("");setRevenue("")}
- const toggle=(x:string)=>setSelected(s=>s.includes(x)?s.filter(v=>v!==x):[...s,x])
- return <main className="pl3"><header><Link href="/"><ArrowLeft size={16}/>Fameboat</Link><span>Proof Lab</span><Link href="/#audit">Start audit</Link></header><section className="pl3-hero"><div><p>PROOF LAB</p><h1>Ask a better question.<br/><em>See a clearer first answer.</em></h1><span><ShieldCheck size={16}/>About a minute · No login · No customer-level data</span></div></section><section className="pl3-shell"><div className="pl3-progress"><span className={step>=1?"active":""}>1<small>Question</small></span><i/><span className={step>=2?"active":""}>2<small>What you know</small></span><i/><span className={step>=3?"active":""}>3<small>What we notice</small></span></div>{step===1&&<div className="pl3-step"><div className="pl3-heading"><span>01</span><div><h2>What are you trying to understand?</h2><p>Choose the question that feels most useful right now.</p></div></div><div className="pl3-options">{prompts.map(([text,Icon])=>{const I=Icon as typeof Search;return <button key={text as string} onClick={()=>setFocus(text as string)} className={focus===text?"active":""}><I size={20}/>{text as string}</button>})}</div><button className="pl3-primary" disabled={!focus} onClick={()=>setStep(2)}>Continue <ArrowRight size={17}/></button></div>}{step===2&&<div className="pl3-step"><div className="pl3-heading"><span>02</span><div><h2>Tell us what you know.</h2><p>Aggregate totals are enough. Leave any field blank if you do not have it.</p></div></div><div className="pl3-inputs"><label><BarChart3/>Marketing spend<input inputMode="numeric" value={spend} onChange={e=>setSpend(e.target.value)} placeholder="₹"/></label><label><Search/>Enquiries / customers<input inputMode="numeric" value={enquiries} onChange={e=>setEnquiries(e.target.value)}/></label><label><Target/>Sales / orders<input inputMode="numeric" value={sales} onChange={e=>setSales(e.target.value)}/></label><label><TrendingUp/>Revenue<input inputMode="numeric" value={revenue} onChange={e=>setRevenue(e.target.value)} placeholder="₹"/></label></div><h3>How do customers usually find you?</h3><div className="pl3-channels">{channels.map(x=><button key={x} className={selected.includes(x)?"active":""} onClick={()=>toggle(x)}>{selected.includes(x)?"✓ ":null}{x}</button>)}</div><p className="pl3-quiet">Missing numbers are okay. Fameboat will not invent channel performance.</p><div className="pl3-actions"><button className="pl3-back" onClick={()=>setStep(1)}>Back</button><button className="pl3-primary" onClick={()=>setStep(3)}>See what Fameboat notices <ArrowRight size={17}/></button></div></div>}{step===3&&<div className="pl3-result"><div className="pl3-heading"><span>03</span><div><h2>Here’s what Fameboat noticed.</h2><p>A first view based only on the information you provided.</p></div></div><div className="pl3-findings"><article><div><TrendingUp/><span>WORKING</span></div><p>{calc.conversion!==null?<>You converted about <strong>{calc.conversion}%</strong> of enquiries into sales.</>:<>You have named a business question — the best first step toward clearer evidence.</>}</p></article><article><div><CircleHelp/><span>UNCLEAR</span></div><p>{selected.length?<>You mentioned {selected.join(", ")}, but we do not know which channel contributed most without outcome data by channel.</>:<>We do not know how customers are finding you yet. Start with one source question at enquiry.</>}</p></article><article><div><Lightbulb/><span>OPPORTUNITY</span></div><p>{calc.missing!==null?<>Roughly <strong>{calc.missing}</strong> enquiries did not convert. Investigate that before increasing acquisition spend.</>:<>Capture spend, enquiries and sales in one place so the first gaps become visible.</>}</p></article><article><div><Target/><span>NEXT MOVE</span></div><p>{calc.perSale||calc.relative?<>Revenue per sale is {calc.perSale&&<strong>₹{calc.perSale.toLocaleString("en-IN")}</strong>}{calc.perSale&&calc.relative?"; ":null}{calc.relative&&<>reported revenue is <strong>{calc.relative}×</strong> reported marketing spend.</>} These are neutral comparisons, not proof of attribution.</>:<>Choose one source to capture and one outcome to count consistently for the next month.</>}</p></article></div><div className="pl3-cta"><div><h3>Want to investigate this using your actual business data?</h3><p>Use the 14-day audit to turn these first questions into a clearer decision.</p></div><Link className="pl3-primary" href="/#audit">Start 14-Day Audit — ₹5,000 <ArrowRight size={17}/></Link></div><button className="pl3-back" onClick={reset}><RotateCcw size={15}/>Start over</button></div>}</section><footer>Fameboat · Evidence before assumptions.</footer></main>
+const questions = ['What’s bringing customers?', 'What’s actually converting?', 'Where am I losing opportunities?', 'What’s worth spending more on?', 'Why aren’t customers coming back?', 'I want to understand my business better']
+const channels = ['Google', 'Instagram', 'Facebook', 'WhatsApp', 'Referrals', 'Walk-ins', 'Website', 'Ads', 'Events', 'Partners', 'Other']
+const fields = [['spend', 'Marketing spend (₹)'], ['enquiries', 'Enquiries'], ['sales', 'Sales or orders'], ['revenue', 'Revenue (₹)']] as const
+const empty = { spend: '', enquiries: '', sales: '', revenue: '' }
+
+// Accepts "50,000" or "₹ 50000". Anything else counts as not provided.
+const toNumber = (v: string) => {
+  const n = Number(v.replace(/[₹,\s]/g, ''))
+  return Number.isFinite(n) && n > 0 ? n : null
+}
+
+export default function ProofLab() {
+  const [step, setStep] = useState(1)
+  const [focus, setFocus] = useState('')
+  const [selected, setSelected] = useState<string[]>([])
+  const [values, setValues] = useState(empty)
+  const heading = useRef<HTMLHeadingElement>(null)
+  const moved = useRef(false)
+
+  useEffect(() => { if (moved.current) heading.current?.focus() }, [step])
+  const go = (n: number) => { moved.current = true; setStep(n) }
+
+  const spend = toNumber(values.spend)
+  const enquiries = toNumber(values.enquiries)
+  const sales = toNumber(values.sales)
+  const revenue = toNumber(values.revenue)
+  const comparable = enquiries !== null && sales !== null && sales <= enquiries
+
+  const reset = () => { setFocus(''); setSelected([]); setValues(empty); go(1) }
+  const toggle = (x: string) => setSelected((s) => (s.includes(x) ? s.filter((v) => v !== x) : [...s, x]))
+
+  return (
+    <>
+      <Header />
+      <main id="main" className="wrap prose lab-page">
+        <h1>Proof Lab</h1>
+        <p>An indicative first view based only on what you type. It is not a verified diagnosis. No login, and nothing you enter is sent or saved.</p>
+        <p className="progress">Step {step} of 3</p>
+
+        {step === 1 && (
+          <section>
+            <h2 ref={heading} tabIndex={-1}>What are you trying to understand?</h2>
+            <div className="choices">
+              {questions.map((q) => <button type="button" key={q} aria-pressed={focus === q} onClick={() => setFocus(q)}>{q}</button>)}
+            </div>
+            <button type="button" className="btn" disabled={!focus} onClick={() => go(2)}>Continue</button>
+          </section>
+        )}
+
+        {step === 2 && (
+          <section>
+            <h2 ref={heading} tabIndex={-1}>What do you know?</h2>
+            <p>Use totals for the same period. Leave blank anything you don’t have.</p>
+            <div className="form flat">
+              {fields.map(([key, label]) => (
+                <label key={key}>{label}<input inputMode="numeric" value={values[key]} onChange={(e) => setValues({ ...values, [key]: e.target.value })} /></label>
+              ))}
+            </div>
+            <h3>How do customers usually find you?</h3>
+            <div className="choices chips">
+              {channels.map((c) => <button type="button" key={c} aria-pressed={selected.includes(c)} onClick={() => toggle(c)}>{c}</button>)}
+            </div>
+            <div className="actions">
+              <button type="button" className="btn" onClick={() => go(3)}>See the first view</button>
+              <button type="button" className="text-link" onClick={() => go(1)}>Back</button>
+            </div>
+          </section>
+        )}
+
+        {step === 3 && (
+          <section>
+            <h2 ref={heading} tabIndex={-1}>Your indicative first view</h2>
+            <p>Your question: <b>{focus}</b></p>
+            <h3>What your numbers show</h3>
+            <p>{comparable ? `About ${Math.round((sales / enquiries) * 100)}% of enquiries became sales (${sales} of ${enquiries}).` : enquiries !== null && sales !== null ? 'Sales are higher than enquiries, so some sales may not start with a recorded enquiry, or the periods differ.' : 'There is not enough here yet to compare enquiries with sales.'}
+              {sales !== null && revenue !== null && ` Average revenue per sale is about ₹${Math.round(revenue / sales).toLocaleString('en-IN')}.`}
+              {spend !== null && revenue !== null && ` Reported revenue is ${(revenue / spend).toFixed(1)} times reported marketing spend. That is a comparison, not proof that marketing caused it.`}</p>
+            <h3>What remains unclear</h3>
+            <p>{selected.length ? `You named ${selected.join(', ')}. These totals do not show which of them contributed to sales.` : 'How customers are finding you.'}</p>
+            <h3>Where to look</h3>
+            <p>{comparable && enquiries > sales ? `${enquiries - sales} enquiries are not matched by a sale. Check whether they are still open, were lost, or were never followed up.` : 'Check whether every enquiry and its outcome is being recorded.'}</p>
+            <h3>A next step</h3>
+            <p>For the next month, note the source and outcome of each enquiry in one place.</p>
+            <div className="actions">
+              <Link className="btn" href="/#audit">Request an audit</Link>
+              <button type="button" className="text-link" onClick={reset}>Start over</button>
+            </div>
+          </section>
+        )}
+      </main>
+      <Footer />
+    </>
+  )
 }

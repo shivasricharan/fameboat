@@ -36,33 +36,33 @@
 
 [[redirects]]
   from = "/about"
-  to = "/#top"
-  status = 301
-
-[[redirects]]
-  from = "/work/*"
-  to = "/#top"
+  to = "/"
   status = 301
 
 [[redirects]]
   from = "/work"
-  to = "/#top"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/work/*"
+  to = "/"
   status = 301
 
 [[redirects]]
   from = "/case-studies"
-  to = "/#top"
+  to = "/"
   status = 301
 
 [[redirects]]
-  from = "/case-studies/metro-tv-telugu"
-  to = "/#top"
+  from = "/case-studies/*"
+  to = "/"
   status = 301
 
 [[redirects]]
-  from = "/case-studies/iia-telangana"
-  to = "/#top"
-  status = 301
+  from = "/terms"
+  to = "/"
+  status = 302
 
 [[headers]]
   for = "/*"

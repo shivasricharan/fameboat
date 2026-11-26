@@ -1,3 +1,17 @@
 import Link from 'next/link'
-import { Header, Footer } from '@/components/CredibilitySite'
-export default function NotFound(){return <><Header/><main className="page-hero"><div className="shell narrow"><p className="section-label">404</p><h1>This page no longer represents Fameboat.</h1><p className="lead-sm">The website has been rebuilt around digital credibility for established founder-led businesses.</p><Link className="button button-primary" href="/">Return to Fameboat</Link></div></main><Footer/></>}
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+
+export default function NotFound() {
+  return (
+    <>
+      <Header />
+      <main id="main" className="wrap prose">
+        <h1>Page not found</h1>
+        <p>The page may have moved or no longer exists.</p>
+        <p><Link className="btn" href="/">Go to the home page</Link></p>
+      </main>
+      <Footer />
+    </>
+  )
+}

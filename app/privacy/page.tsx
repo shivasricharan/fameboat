@@ -1,4 +1,31 @@
 import type { Metadata } from 'next'
-import { StandardPage } from '@/components/CredibilitySite'
-export const metadata:Metadata={title:'Privacy',alternates:{canonical:'/privacy'}}
-export default function Page(){return <StandardPage eyebrow="Legal" title="Privacy" intro="How Fameboat handles information shared through this website."><section className="content-section"><article className="shell legal prose"><h2>Information you provide</h2><p>When you request a Digital Presence Review or contact Fameboat, the website may collect your name, business details, website URL, email address, phone number, and the information you choose to share about your digital presence.</p><h2>How it is used</h2><p>This information is used to review and respond to your enquiry, understand your requirements, and communicate about a potential Fameboat engagement. Fameboat does not sell your contact information.</p><h2>Analytics</h2><p>Basic website analytics and conversion events may be used to understand how visitors navigate the website and improve the digital experience. Fameboat does not intentionally add unnecessary advertising trackers.</p><h2>Service providers</h2><p>Form submissions and website hosting may be processed through configured service providers required to operate the website. Access is limited to operational purposes.</p><h2>Contact</h2><p>To request access, correction, or deletion of information you have submitted, contact Fameboat through the website contact page.</p><p>Last updated: July 15, 2026.</p></article></section></StandardPage>}
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import { WHATSAPP_DISPLAY, WHATSAPP_URL } from '@/lib'
+
+export const metadata: Metadata = { title: 'Privacy', description: 'How Fameboat handles information shared through this website.', alternates: { canonical: '/privacy' } }
+
+export default function Privacy() {
+  return (
+    <>
+      <Header />
+      <main id="main" className="wrap prose">
+        <h1>Privacy</h1>
+        <h2>What we collect</h2>
+        <p>When you send an enquiry, we receive your name, business name, email address, your question, and your phone number and website if you choose to add them.</p>
+        <h2>How we use it</h2>
+        <p>We use it to reply to you, confirm fit and scope, and discuss a possible engagement. We do not sell your information.</p>
+        <h2>Who processes it</h2>
+        <p>The website is hosted on Netlify. Enquiries are passed to Google Apps Script, which stores them in a Google Sheet and sends an email notification.</p>
+        <h2>Proof Lab</h2>
+        <p>What you type into the Proof Lab is processed in your browser. It is not sent to us or saved.</p>
+        <h2>Tracking</h2>
+        <p>This website’s code does not set advertising or analytics cookies. The hosting provider may keep standard server logs.</p>
+        <h2>Your choices</h2>
+        <p>To see, correct or delete what you have sent, message us on WhatsApp at <a href={WHATSAPP_URL}>{WHATSAPP_DISPLAY}</a>.</p>
+        <p>Last updated: 26 November 2026.</p>
+      </main>
+      <Footer />
+    </>
+  )
+}

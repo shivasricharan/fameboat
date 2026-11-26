@@ -1,32 +1,141 @@
-"use client"
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import EnquiryForm from '@/components/EnquiryForm'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 
-import Link from "next/link"
-import { FormEvent, useState } from "react"
-import { ArrowRight, BadgeCheck, BarChart3, CircleHelp, Eye, Lightbulb, MapPin, MessageCircle, Search, ShieldCheck, Sparkles, Target, TrendingUp } from "lucide-react"
-import "./fameboat2.css"
+export const metadata: Metadata = { alternates: { canonical: '/' } }
 
-const steps=[{icon:Search,title:"Gather",copy:"See the activity and business signals you already have."},{icon:Eye,title:"Connect",copy:"Follow the customer journey from attention to outcome."},{icon:CircleHelp,title:"Clarify",copy:"Separate what the evidence shows from what is still assumed."},{icon:Target,title:"Decide",copy:"Choose what to scale, stop, fix or test next."}]
-const situations=[{icon:TrendingUp,text:"You are spending on marketing but are not sure what is working."},{icon:MessageCircle,text:"Leads are coming in but business is not growing proportionately."},{icon:BarChart3,text:"Different channels report different versions of success."},{icon:MapPin,text:"Opportunities may be getting lost between enquiry and sale."}]
+const situations = [
+  ['You spend on marketing but aren’t sure what it contributes.', 'Reports show reach, clicks and leads. They don’t always show what any of it did for the business.'],
+  ['Enquiries arrive, but you don’t know where potential customers drop off.', 'Some call, some message, some visit. Between first contact and sale, the trail goes quiet.'],
+  ['You need a clearer basis for deciding what to spend on next.', 'Before renewing a campaign or trying a new channel, you want more than a hunch.'],
+]
 
-export default function Home(){
- const [status,setStatus]=useState<"idle"|"sending"|"success"|"error">("idle")
- const [message,setMessage]=useState("")
- async function submit(e:FormEvent<HTMLFormElement>){
-  e.preventDefault(); if(status==="sending")return
-  const formElement=e.currentTarget; const payload=Object.fromEntries(new FormData(formElement).entries())
-  setStatus("sending");setMessage("")
-  try{const res=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...payload,service:"14-Day Marketing Proof Audit"})});const data=await res.json();if(!res.ok)throw new Error(data.error);formElement.reset();setStatus("success");setMessage("Thanks — your paid audit request is in. We’ll be in touch shortly.")}catch(err){setStatus("error");setMessage(err instanceof Error?err.message:"Something went wrong. Please try again.")}}
- return <main className="fb3" id="top">
-  <header className="fb3-header"><a className="fb3-brand" href="#top"><span>F</span>Fameboat</a><nav><a href="#how">How it works</a><Link href="/proof-lab">Proof Lab</Link><a href="#audit">14-Day Audit</a></nav><a className="fb3-nav-cta" href="#audit">Start audit <ArrowRight size={15}/></a></header>
-  <section className="fb3-hero"><div className="fb3-wrap fb3-hero-grid"><div><p className="fb3-label">FAMEBOAT</p><h1>Marketing shows activity.<br/><em>Fameboat shows proof.</em></h1><p className="fb3-lede">A clear view of what looks promising, what remains unclear, and what deserves your attention before you spend more.</p><div className="fb3-actions"><a className="fb3-primary" href="#audit">Start 14-Day Audit <span>₹5,000</span><ArrowRight size={17}/></a><Link className="fb3-secondary" href="/proof-lab">See Fameboat in action</Link></div><p className="fb3-reassure"><ShieldCheck size={16}/>Focused 14-day engagement · Real business data · Clear next decisions</p></div><div className="fb3-question"><div className="fb3-question-icon"><Eye size={32}/></div><p>ONE BETTER QUESTION</p><strong>What is actually creating business?</strong><span>Start with the evidence you have, not a perfect dashboard.</span></div></div></section>
-  <section className="fb3-problem"><div className="fb3-wrap"><div className="fb3-section-head"><div><p className="fb3-label">THE PROBLEM</p><h2>Lots of activity.<br/>Not enough clarity.</h2></div><p>Clicks, leads, followers, calls, messages, traffic and campaign reports can all look busy — without telling you what changed the business.</p></div><div className="fb3-signal-grid">{[{icon:Eye,label:"Visible",copy:"Activity is easy to see."},{icon:CircleHelp,label:"Unclear",copy:"Contribution is harder to prove."},{icon:Lightbulb,label:"Missed",copy:"Opportunities can disappear in the journey."},{icon:Target,label:"Needed",copy:"A better next decision."}].map(({icon:Icon,label,copy})=><article key={label}><Icon/><div><strong>{label}</strong><span>{copy}</span></div></article>)}</div></div></section>
-  <section className="fb3-how" id="how"><div className="fb3-wrap"><p className="fb3-label">HOW IT WORKS</p><h2>From activity to a decision.</h2><div className="fb3-steps">{steps.map(({icon:Icon,title,copy},i)=><article key={title}><div><span>0{i+1}</span><Icon size={25}/></div><h3>{title}</h3><p>{copy}</p>{i<steps.length-1&&<ArrowRight className="fb3-step-arrow" size={20}/>}</article>)}</div></div></section>
-  <section className="fb3-lab"><div className="fb3-wrap fb3-lab-inner"><div className="fb3-lab-mark"><Sparkles size={33}/></div><div><p className="fb3-label">PROOF LAB</p><h2>See what Fameboat notices.</h2><p>Answer a few simple questions. Get an honest, client-side first view in about a minute.</p></div><Link className="fb3-primary" href="/proof-lab">Open Proof Lab <ArrowRight size={17}/></Link></div></section>
-  <section className="fb3-audit" id="audit"><div className="fb3-wrap"><div className="fb3-audit-top"><div><p className="fb3-label">THE 14-DAY AUDIT</p><h2>14 days to focus on what matters.</h2></div><div className="fb3-price"><span>Focused paid engagement</span><strong>₹5,000</strong></div></div><div className="fb3-timeline">{[["1–2","Frame the business question"],["3–5","Review available evidence"],["6–9","Find gaps and patterns"],["10–12","Investigate the opportunity"],["13–14","Share clear next moves"]].map(([day,copy],i)=><article key={day}><span>{i+1}</span><b>Days {day}</b><p>{copy}</p></article>)}</div></div></section>
-  <section className="fb3-value"><div className="fb3-wrap"><div className="fb3-section-head"><div><p className="fb3-label">WHAT YOU GET</p><h2>Useful evidence.<br/>A clearer next move.</h2></div><p>Not a huge report for appearance. A concise, practical summary to help you decide what to do next.</p></div><div className="fb3-deliverables">{[{icon:CircleHelp,t:"Business question",c:"Define what needs to be understood."},{icon:Search,t:"Channel review",c:"See the marketing signals available."},{icon:MapPin,t:"Journey view",c:"Find where momentum may be lost."},{icon:BadgeCheck,t:"Decision summary",c:"Scale, stop, fix or test next."}].map(({icon:Icon,t,c})=><article key={t}><Icon/><h3>{t}</h3><p>{c}</p></article>)}</div></div></section>
-  <section className="fb3-fit"><div className="fb3-wrap fb3-fit-grid"><div><p className="fb3-label">THIS MAY BE USEFUL IF…</p><h2>You need a clearer view before the next spend.</h2><p>You don’t need perfect data to start.</p></div><div>{situations.map(({icon:Icon,text})=><p key={text}><Icon size={19}/>{text}</p>)}</div></div></section>
-  <section className="fb3-trust"><div className="fb3-wrap"><ShieldCheck size={38}/><div><p className="fb3-label">NO MAGIC ATTRIBUTION</p><h2>We will not pretend every sale has one perfect source.</h2><p>Fameboat works with what is known, calls out what is unclear, and makes the next investigation practical.</p></div></div></section>
-  <section className="fb3-form"><div className="fb3-wrap fb3-form-grid"><div><p className="fb3-label">START YOUR AUDIT</p><h2>Before you spend more, understand what is already happening.</h2><p>14-Day Marketing Proof Audit · <strong>₹5,000</strong></p></div><form action="/#audit" onSubmit={submit}><input className="fb3-honeypot" name="company" tabIndex={-1} autoComplete="off"/><label>Name*<input name="name" required/></label><label>Business / Company*<input name="business" required/></label><label>Email*<input name="email" type="email" required/></label><label>Phone / WhatsApp*<input name="phone" required/></label><label className="wide">Website <em>(optional)</em><input name="website" placeholder="https://"/></label><label className="wide">What are you trying to understand?<textarea name="message" required/></label><button className="fb3-primary" disabled={status==="sending"}>{status==="sending"?"Sending…":"Request 14-Day Audit — ₹5,000"}<ArrowRight size={17}/></button>{message&&<p className={status==="success"?"success":"error"}>{message}</p>}</form></div></section>
-  <footer><div className="fb3-wrap"><strong>Fameboat</strong><span>Evidence before assumptions.</span><Link href="/privacy">Privacy</Link></div></footer>
- </main>
+const steps = [
+  ['Agree on the business question', 'We settle what you need to decide and what the audit will and won’t cover.'],
+  ['Review the available evidence', 'You share what you already have: campaign reports, enquiries, customer interactions and sales records.'],
+  ['Identify patterns, gaps and uncertainties', 'We separate what the records show from what is assumed or simply unknown.'],
+  ['Recommend practical next actions', 'You get a prioritised view of what to scale, stop, fix or test next.'],
+]
+
+const faqs = [
+  ['Do I need perfect data?', 'No. Start with what you have, even if it is spread across reports, chats, spreadsheets and notebooks. Missing information limits what can be concluded, and the summary says where.'],
+  ['Is marketing execution included?', 'No. The audit gives you observations and recommendations. Running campaigns or making the changes is not part of this engagement.'],
+  ['Can you identify the source of every sale?', 'No. Some customers see several things before buying, and some sources are never recorded. We show what can be traced, what is an assumption and what remains unknown.'],
+  ['What happens after I enquire?', 'We get in touch to understand your question and see whether the audit is a good fit. If it is, we agree the scope before the 14-day engagement begins. An enquiry does not commit you to buying.'],
+]
+
+export default function Home() {
+  return (
+    <>
+      <Header />
+      <main id="main">
+        <section className="hero wrap">
+          <h1>Understand your marketing.<br />Know your next move.</h1>
+          <div className="hero-side">
+            <p>Fameboat reviews the campaign reports, enquiries and sales records you already have, then tells you what appears to be working, what is unclear and what to do next.</p>
+            <p className="offer-line">14-Day Marketing Proof Audit · ₹5,000</p>
+            <div className="actions">
+              <a className="btn" href="#audit">Request an audit</a>
+              <a className="text-link" href="#output">See what you get</a>
+            </div>
+          </div>
+        </section>
+
+        <section className="band navy" aria-labelledby="who-title">
+          <div className="wrap">
+            <h2 id="who-title">Sound familiar?</h2>
+            <ul className="situations">
+              {situations.map(([title, copy]) => <li key={title}><h3>{title}</h3><p>{copy}</p></li>)}
+            </ul>
+          </div>
+        </section>
+
+        <section className="band wrap split" id="how" aria-labelledby="how-title">
+          <div>
+            <h2 id="how-title">How it works</h2>
+            <p className="intro">A focused 14-day engagement. The question and scope are agreed at the beginning, so you know what is being looked at.</p>
+          </div>
+          <ol className="steps">
+            {steps.map(([title, copy]) => <li key={title}><h3>{title}</h3><p>{copy}</p></li>)}
+          </ol>
+        </section>
+
+        <section className="band tint" id="output" aria-labelledby="output-title">
+          <div className="wrap split">
+            <div>
+              <h2 id="output-title">What you get</h2>
+              <p className="intro">A concise decision summary, written so you can act on it. It covers:</p>
+              <ul className="covers">
+                <li>The business question</li>
+                <li>Evidence and observations</li>
+                <li>What remains unclear</li>
+                <li>Prioritised recommendations</li>
+              </ul>
+            </div>
+
+            <article className="sheet" aria-labelledby="sample-title">
+              <p className="fiction">Fictional example. Not a real client or result.</p>
+              <h3 id="sample-title">Decision summary: a neighbourhood fitness studio</h3>
+
+              <h4>Business question</h4>
+              <p>Should we put more money into Instagram ads next month?</p>
+
+              <h4>Evidence and observations</h4>
+              <dl>
+                <div><dt>Evidence</dt><dd>The ad report shows ₹30,000 spent and 90 enquiry forms in one month.</dd></div>
+                <div><dt>Evidence</dt><dd>The register shows 20 new members. A source is noted for 8: five referrals, three Instagram.</dd></div>
+                <div><dt className="assume">Assumption</dt><dd>The owner believes most new members come from Instagram. The records neither confirm nor rule this out.</dd></div>
+              </dl>
+
+              <h4>What remains unclear</h4>
+              <p>Where the other 12 members came from, and what happened to enquiries after the first call.</p>
+
+              <h4>Prioritised recommendations</h4>
+              <ol>
+                <li><b>Fix:</b> record the source and follow-up status of every enquiry.</li>
+                <li><b>Test:</b> call new enquiries the same day for two weeks and note how many book a visit.</li>
+                <li><b>Hold:</b> keep ad spend where it is until a month of source records exists.</li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <aside className="wrap lab" aria-labelledby="lab-title">
+          <div>
+            <h2 id="lab-title">Not ready to enquire? Try the Proof Lab.</h2>
+            <p>Answer a few questions for an indicative first view. It is based only on what you type and is not a verified diagnosis.</p>
+          </div>
+          <Link className="btn outline" href="/proof-lab">Open Proof Lab</Link>
+        </aside>
+
+        <section className="band navy" id="audit" aria-labelledby="audit-title">
+          <div className="wrap split">
+            <div>
+              <h2 id="audit-title">14-Day Marketing Proof Audit</h2>
+              <p className="price">₹5,000 <span>one-time engagement</span></p>
+              <p>Included:</p>
+              <ul className="included">
+                <li>One business question and scope, agreed at the start</li>
+                <li>A review of the information you already have</li>
+                <li>Observations, gaps and uncertainties</li>
+                <li>A concise summary with prioritised recommendations</li>
+              </ul>
+              <p className="note">The audit does not promise revenue growth or complete attribution. Marketing execution is not included.</p>
+            </div>
+            <EnquiryForm />
+          </div>
+        </section>
+
+        <section className="band wrap split" id="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Common questions</h2>
+          <div className="faq">
+            {faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
 }
