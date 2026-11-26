@@ -50,7 +50,12 @@ function doPost(e) {
       data.message || '',
     ])
 
-    sendNotificationEmail(data)
+    // The lead is already saved. An email problem must not report it as lost.
+    try {
+      sendNotificationEmail(data)
+    } catch (mailError) {
+      console.error('Lead saved, but the notification email failed: ' + mailError.message)
+    }
 
     return ContentService
       .createTextOutput(JSON.stringify({ success: true }))
@@ -69,7 +74,7 @@ function doGet(e) {
 }
 
 function sendNotificationEmail(data) {
-  const ownerEmail = Session.getActiveUser().getEmail()
+  const ownerEmail = Session.getEffectiveUser().getEmail()
   const subject = `🚀 New Lead: ${data.name} — ${data.service || 'General Enquiry'}`
   const body = `
 New lead from fameboat.com
@@ -88,4 +93,9 @@ Open your leads sheet to view all enquiries.
   `.trim()
 
   MailApp.sendEmail(ownerEmail, subject, body)
+}
+
+// Run once from the editor to grant permission and confirm that email arrives.
+function testEmail() {
+  sendNotificationEmail({ name: 'Test lead', email: 'test@example.com', message: 'Email check' })
 }
