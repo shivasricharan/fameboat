@@ -23,7 +23,7 @@ const schema = {
   name: 'Fameboat',
   url: 'https://fameboat.com',
   logo: 'https://fameboat.com/fameboat-logo.png',
-  telephone: '+919849016794',
+  email: 'shivacharan.s@gmail.com',
   areaServed: 'IN',
   makesOffer: { '@type': 'Offer', name: '14-Day Marketing Proof Audit', price: '5000', priceCurrency: 'INR' },
 }

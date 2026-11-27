@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import { WHATSAPP_DISPLAY, WHATSAPP_URL } from '@/lib'
+import { CONTACT_EMAIL } from '@/lib'
 
 export const metadata: Metadata = { title: 'Privacy', description: 'How Fameboat handles information shared through this website.', alternates: { canonical: '/privacy' } }
 
@@ -22,8 +22,8 @@ export default function Privacy() {
         <h2>Tracking</h2>
         <p>This website’s code does not set advertising or analytics cookies. The hosting provider may keep standard server logs.</p>
         <h2>Your choices</h2>
-        <p>To see, correct or delete what you have sent, message us on WhatsApp at <a href={WHATSAPP_URL}>{WHATSAPP_DISPLAY}</a>.</p>
-        <p>Last updated: 26 November 2026.</p>
+        <p>To see, correct or delete what you have sent, email us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+        <p>Last updated: 27 November 2026.</p>
       </main>
       <Footer />
     </>

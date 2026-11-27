@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
   if (!body || typeof body !== 'object') return fail('The enquiry could not be read. Please try again.', 400)
 
   // Spam trap. Never report success for something that was not saved.
-  if (body.fb_leave_blank) return fail('The enquiry was not sent. Please message us on WhatsApp instead.', 400)
+  if (body.fb_leave_blank) return fail('The enquiry was not sent. Please email us at shivacharan.s@gmail.com instead.', 400)
 
   const name = text(body.name, 100)
   const business = text(body.business, 150)
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
   const scriptUrl = process.env.GOOGLE_SCRIPT_URL
   if (!scriptUrl) {
     console.error('GOOGLE_SCRIPT_URL not set')
-    return fail('The enquiry form is unavailable right now. Please message us on WhatsApp.', 503)
+    return fail('The enquiry form is unavailable right now. Please email us at shivacharan.s@gmail.com.', 503)
   }
 
   try {
@@ -58,6 +58,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error('Contact form error:', err)
-    return fail('We could not confirm that your enquiry was received. Please try again or message us on WhatsApp.', 502)
+    return fail('We could not confirm that your enquiry was received. Please try again or email us at shivacharan.s@gmail.com.', 502)
   }
 }
