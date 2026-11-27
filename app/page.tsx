@@ -34,7 +34,7 @@ export default function Home() {
         <section className="hero wrap">
           <h1>Understand your marketing.<br />Know your next move.</h1>
           <div className="hero-side">
-            <p>Fameboat reviews the campaign reports, enquiries and sales records you already have, then tells you what appears to be working, what is unclear and what to do next.</p>
+            <p>Fameboat reviews your existing campaign reports, enquiries and sales records to help you understand what appears to be working, what remains unclear and what to do next.</p>
             <p className="offer-line">14-Day Marketing Proof Audit · ₹5,000</p>
             <div className="actions">
               <a className="btn" href="#audit">Request an audit</a>
@@ -96,7 +96,7 @@ export default function Home() {
               <ol>
                 <li><b>Fix:</b> record the source and follow-up status of every enquiry.</li>
                 <li><b>Test:</b> call new enquiries the same day for two weeks and note how many book a visit.</li>
-                <li><b>Hold:</b> keep ad spend where it is until a month of source records exists.</li>
+                <li><b>Review:</b> track enquiry sources and follow-up outcomes for a month, then review the spending decision alongside membership revenue and available capacity.</li>
               </ol>
             </article>
           </div>
