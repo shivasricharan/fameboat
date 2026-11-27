@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { FormEvent, useEffect, useRef, useState } from 'react'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
-const FAILED = 'We could not confirm that your enquiry was received. Your details are still in the form, so please try again or email us at shivacharan.s@gmail.com.'
+const FAILED = 'We could not confirm that your enquiry was received. Your details are still in the form, so please try again or message us on WhatsApp.'
 
 export default function EnquiryForm() {
   const [status, setStatus] = useState<Status>('idle')
@@ -65,7 +65,7 @@ export default function EnquiryForm() {
       <button className="btn" type="submit" disabled={!ready || status === 'sending'}>
         {status === 'sending' ? 'Sending…' : 'Request an audit'}
       </button>
-      <noscript><p className="error">This form needs JavaScript. Please email us at shivacharan.s@gmail.com.</p></noscript>
+      <noscript><p className="error">This form needs JavaScript. Please contact us on WhatsApp using the number below.</p></noscript>
     </form>
   )
 }
